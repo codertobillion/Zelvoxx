@@ -85,7 +85,7 @@ export default function SystemFlow() {
                 initial={{ x: 0, opacity: 0 }}
                 whileInView={{ x: [0, 700, 0], opacity: [0, 1, 0], scale: [0.8, 1.1, 0.8] }}
                 viewport={{ once: false }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
               />
 
               <motion.div
