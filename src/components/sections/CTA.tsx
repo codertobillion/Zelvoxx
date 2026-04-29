@@ -77,24 +77,53 @@ export default function CTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
-              <a
+              <motion.a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-12 py-6 rounded-full font-black text-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] tracking-wide w-full sm:w-auto uppercase overflow-hidden"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-12 py-6 rounded-full font-black text-lg tracking-wide w-full sm:w-auto uppercase overflow-hidden"
+                style={{
+                  boxShadow: "0 0 40px rgba(255,255,255,0.2), 0 10px 40px rgba(255,255,255,0.1)",
+                }}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white via-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Animated gradient background on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-100 bg-[length:200%_100%]"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1, backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Glow expansion on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
+                  style={{
+                    boxShadow: "0 0 60px rgba(255,255,255,0.4), 0 0 100px rgba(255,255,255,0.2)",
+                  }}
+                />
                 <PhoneCall className="w-5 h-5 relative z-10" />
                 <span className="relative z-10">Book Your Growth Call</span>
-              </a>
+              </motion.a>
               
-              <a
+              <motion.a
                 href="#pricing"
-                className="group inline-flex items-center justify-center gap-3 bg-transparent hover:bg-white/5 border border-white/20 text-white px-12 py-6 rounded-full font-bold text-lg transition-all hover:scale-105 backdrop-blur-md tracking-wide w-full sm:w-auto uppercase"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative inline-flex items-center justify-center gap-3 bg-transparent border border-white/20 text-white px-12 py-6 rounded-full font-bold text-lg backdrop-blur-md tracking-wide w-full sm:w-auto uppercase overflow-hidden"
               >
-                See Pricing
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-              </a>
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                {/* Glow on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
+                  style={{
+                    boxShadow: "0 0 40px rgba(123,97,255,0.2), inset 0 0 20px rgba(123,97,255,0.05)",
+                  }}
+                />
+                <span className="relative z-10">See Pricing</span>
+                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform" />
+              </motion.a>
             </div>
             
             <motion.p 

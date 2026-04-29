@@ -6,34 +6,110 @@ import { CALENDLY_URL } from "@/src/constants/data";
 
 const logos = ["LUMEN", "PULSE", "HEXABIT", "AVORA", "NEXORA", "VERTEX"];
 
+// Floating particles configuration
+const particles = [
+  { size: 4, x: "15%", y: "20%", delay: 0, duration: 20 },
+  { size: 3, x: "85%", y: "15%", delay: 2, duration: 25 },
+  { size: 5, x: "70%", y: "60%", delay: 4, duration: 22 },
+  { size: 2, x: "25%", y: "70%", delay: 1, duration: 28 },
+  { size: 4, x: "90%", y: "80%", delay: 3, duration: 24 },
+  { size: 3, x: "40%", y: "35%", delay: 5, duration: 26 },
+  { size: 2, x: "60%", y: "85%", delay: 2.5, duration: 30 },
+  { size: 4, x: "10%", y: "50%", delay: 1.5, duration: 23 },
+];
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-10">
       <div className="absolute inset-0 z-0">
+        {/* Background Image with enhanced overlay */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+          className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-luminosity"
           style={{
             backgroundImage:
               'url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80")',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background" />
+
+        {/* Animated gradient orbs - slow cinematic movement */}
         <motion.div
-          animate={{ scale: [1, 1.1], opacity: [0.3, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full mix-blend-screen"
+          animate={{ 
+            scale: [1, 1.15, 1], 
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 30, 0],
+          }}
+          transition={{ duration: 12, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+          className="absolute top-0 right-0 w-[900px] h-[900px] bg-primary/25 blur-[180px] rounded-full mix-blend-screen"
         />
         <motion.div
-          animate={{ scale: [1, 1.2], opacity: [0.2, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full mix-blend-screen"
+          animate={{ 
+            scale: [1, 1.25, 1], 
+            opacity: [0.2, 0.4, 0.2],
+            y: [0, -50, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-accent/20 blur-[180px] rounded-full mix-blend-screen"
         />
+        <motion.div
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.15, 0.35, 0.15],
+          }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 4 }}
+          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/15 blur-[150px] rounded-full mix-blend-screen"
+        />
+
+        {/* Slow animated gradient beam */}
         <motion.div
           aria-hidden="true"
-          animate={{ x: [-30, 30, -30], opacity: [0.08, 0.2, 0.08] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-y-0 left-1/2 w-[35vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/25 to-transparent blur-3xl"
+          animate={{ x: [-30, 30, -30], opacity: [0.05, 0.15, 0.05] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-y-0 left-1/2 w-[40vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent blur-3xl"
+        />
+
+        {/* Floating particles layer - low opacity for depth */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {particles.map((particle, idx) => (
+            <motion.div
+              key={idx}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: particle.size,
+                height: particle.size,
+                left: particle.x,
+                top: particle.y,
+                filter: "blur(1px)",
+              }}
+              animate={{
+                y: [0, -30, 0, 20, 0],
+                x: [0, 15, -10, 5, 0],
+                opacity: [0.1, 0.25, 0.15, 0.3, 0.1],
+                scale: [1, 1.2, 0.9, 1.1, 1],
+              }}
+              transition={{
+                duration: particle.duration,
+                delay: particle.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Subtle animated gradient mesh */}
+        <motion.div
+          animate={{
+            background: [
+              "radial-gradient(circle at 20% 30%, rgba(123, 97, 255, 0.08) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 70%, rgba(123, 97, 255, 0.08) 0%, transparent 50%)",
+              "radial-gradient(circle at 50% 50%, rgba(45, 156, 219, 0.06) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 30%, rgba(123, 97, 255, 0.08) 0%, transparent 50%)",
+            ],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 pointer-events-none"
         />
       </div>
 
@@ -48,17 +124,29 @@ export default function Hero() {
             <span className="text-sm font-bold tracking-widest text-primary uppercase">Growth Systems Agency</span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-black mb-6 text-white leading-[1.05] tracking-tighter"
-          >
-            Build. Scale. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#A88BFF] to-primary bg-300% animate-gradient">
-              Dominate.
-            </span>
-          </motion.h1>
+          {/* Main heading with subtle glow effect */}
+          <div className="relative">
+            {/* Glow behind heading */}
+            <motion.div
+              animate={{ 
+                opacity: [0.3, 0.6, 0.3],
+                scale: [0.9, 1.1, 0.9],
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-8 bg-primary/20 blur-[80px] rounded-full pointer-events-none z-0"
+            />
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative z-10 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-black mb-6 text-white leading-[1.05] tracking-tighter"
+            >
+              Build. Scale. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#A88BFF] to-primary bg-300% animate-gradient glow-text">
+                Dominate.
+              </span>
+            </motion.h1>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -75,21 +163,46 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
           >
-            <a
+            <motion.a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-primary to-[#5F3DFF] text-white px-8 py-4 rounded-xl font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(123,97,255,0.4)] hover:shadow-[0_0_40px_rgba(123,97,255,0.6)]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative w-full sm:w-auto inline-flex justify-center items-center gap-2 text-white px-8 py-4 rounded-xl font-bold text-sm overflow-hidden group"
             >
-              Book a Call
-            </a>
-            <a
+              {/* Animated gradient background */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-primary via-[#8B71FF] to-primary bg-[length:200%_100%]"
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Shadow layer */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  boxShadow: "0 0 40px rgba(123,97,255,0.5), 0 10px 40px rgba(123,97,255,0.3)",
+                }}
+              />
+              <span className="relative z-10">Book a Call</span>
+            </motion.a>
+            <motion.a
               href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 group glass-premium px-8 py-4 rounded-xl font-bold text-sm transition-all hover:bg-white/10 hover:scale-105 active:scale-95 text-white border-white/10"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white overflow-hidden group glass-premium border border-white/10"
             >
-              <MessageCircle className="w-4 h-4" />
-              Chat on WhatsApp
-            </a>
+              {/* Shimmer effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  boxShadow: "0 0 30px rgba(123,97,255,0.2), inset 0 0 20px rgba(123,97,255,0.05)",
+                }}
+              />
+              <MessageCircle className="w-4 h-4 relative z-10" />
+              <span className="relative z-10">Chat on WhatsApp</span>
+            </motion.a>
           </motion.div>
         </div>
 
