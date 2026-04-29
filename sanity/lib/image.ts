@@ -6,5 +6,6 @@ const builder = createImageUrlBuilder({
 });
 
 export function urlForImage(source: any) {
-  return source ? builder.image(source).auto("format").fit("max") : "";
+  if (!source) return null;
+  return builder.image(source).auto("format").fit("max");
 }
