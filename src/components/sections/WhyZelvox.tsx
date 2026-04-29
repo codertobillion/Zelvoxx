@@ -28,7 +28,7 @@ const reasons = [
 
 export default function WhyZelvox() {
   return (
-    <section className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
+    <section className="bg-[#101018] relative overflow-hidden border-t border-white/5">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[150px] pointer-events-none z-0 rounded-full" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -59,7 +59,7 @@ export default function WhyZelvox() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-premium p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 bg-gradient-to-b from-white/[0.03] to-transparent group relative overflow-hidden"
+              className="glass-premium premium-border soft-glow p-8 rounded-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] bg-gradient-to-b from-white/[0.04] to-transparent group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
               

@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { CALENDLY_URL } from "@/src/constants/data";
 
 const logos = ["LUMEN", "PULSE", "HEXABIT", "AVORA", "NEXORA", "VERTEX"];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-10">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 md:pt-36 pb-16">
       {/* Background Image Placeholder with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -30,6 +30,14 @@ export default function Hero() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full mix-blend-screen" 
         />
+        <motion.div
+          aria-hidden
+          className="absolute inset-0 opacity-40 bg-[linear-gradient(120deg,rgba(123,97,255,0.16),transparent_35%,rgba(45,156,219,0.16)_70%,transparent)]"
+          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          style={{ backgroundSize: "200% 200%" }}
+        />
+
         {/* Particles placeholder */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay z-0" />
       </div>
@@ -51,9 +59,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-black mb-6 text-white leading-[1.05] tracking-tighter"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] font-heading font-black mb-8 text-white leading-[1.02] tracking-[-0.03em] relative"
           >
-            Build. Scale. <br/>
+            <span className="relative inline-block">Build. Scale.<span className="absolute -inset-x-2 top-1/2 h-10 -translate-y-1/2 bg-primary/25 blur-2xl -z-10" /></span> <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#A88BFF] to-primary bg-300% animate-gradient">
               Dominate.
             </span>
@@ -88,9 +96,9 @@ export default function Hero() {
         <div className="w-full lg:w-[400px] flex justify-center lg:justify-end mt-12 lg:mt-0 relative z-30">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6, type: "spring" }}
-            className="w-full max-w-sm glass-premium rounded-3xl p-8 border border-white/10 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-8 backdrop-blur-xl relative overflow-hidden"
+            animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
+            transition={{ duration: 6, delay: 0.6, type: "spring", repeat: Infinity, repeatType: "mirror" }}
+            className="w-full max-w-sm glass-premium premium-border soft-glow rounded-3xl p-8 md:p-9 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 flex flex-col gap-8 backdrop-blur-xl relative overflow-hidden"
           >
             {/* Inner glow effect for the card */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none" />

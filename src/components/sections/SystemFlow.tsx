@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Layout, Filter, Target, DollarSign } from "lucide-react";
+import { Sparkles, Layout, Filter, Target, DollarSign } from "lucide-react";
 
 const steps = [
   { icon: <Sparkles className="w-5 h-5" />, title: "Brand" },
@@ -13,7 +13,7 @@ const steps = [
 
 export default function SystemFlow() {
   return (
-    <section id="system" className="py-28 md:py-40 relative overflow-hidden">
+    <section id="system" className="relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
 
@@ -63,7 +63,7 @@ export default function SystemFlow() {
                     initial={{ pathLength: 0, opacity: 0 }}
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 2, ease: "easeInOut", delay: 0.2 }}
+                    transition={{ duration: 2.4, ease: "easeInOut", delay: 0.2 }}
                     d="M 0,0 L 1000,0" 
                     fill="none" 
                     stroke="url(#gradient)" 
@@ -79,6 +79,23 @@ export default function SystemFlow() {
                 </svg>
               </div>
 
+              
+              <motion.div
+                className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(123,97,255,0.9)] z-20"
+                initial={{ x: 0, opacity: 0 }}
+                whileInView={{ x: [0, 560, 0], opacity: [0, 1, 0], scale: [0.8, 1.1, 0.8] }}
+                viewport={{ once: false }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <motion.div
+                className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 rounded-full bg-accent shadow-[0_0_18px_rgba(45,156,219,0.9)] z-20"
+                initial={{ x: 0, opacity: 0 }}
+                whileInView={{ x: [0, 560], opacity: [0, 1, 0] }}
+                viewport={{ once: false }}
+                transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+              />
+
               {/* Nodes */}
               {steps.map((step, idx) => (
                 <div key={idx} className="flex flex-col items-center group relative z-10">
@@ -87,7 +104,7 @@ export default function SystemFlow() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 + (idx * 0.15) }}
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full glass-premium flex flex-col items-center justify-center relative bg-[#0B0B0B] group-hover:border-primary/80 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.8)] group-hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group-hover:-translate-y-2 cursor-pointer"
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full glass-premium flex flex-col items-center justify-center relative bg-[#0B0B0B] group-hover:border-primary/80 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.8)] group-hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group-hover:-translate-y-2 group-hover:scale-105 cursor-pointer"
                   >
                     <div className="text-white group-hover:text-primary transition-colors duration-300 scale-125 group-hover:scale-150">
                       {step.icon}

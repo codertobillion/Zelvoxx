@@ -16,7 +16,7 @@ export default function TrustedBy() {
     <section className="py-12 bg-background border-b border-white/[0.05] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <p className="text-white/40 font-body uppercase tracking-widest text-sm font-semibold whitespace-nowrap shrink-0">
-          Trusted by industry leaders
+          Built for growing businesses
         </p>
         
         {/* Simple Marquee */}
@@ -28,7 +28,7 @@ export default function TrustedBy() {
           >
             {/* Double the array for seamless looping */}
             {[...companies, ...companies, ...companies].map((company, idx) => (
-              <span key={idx} className="text-xl md:text-2xl font-heading font-bold text-white/20 uppercase tracking-wide flex-shrink-0 hover:text-white/40 transition-colors cursor-default">
+              <span key={idx} className="text-xl md:text-2xl font-heading font-bold text-white/20 uppercase tracking-wide flex-shrink-0 hover:text-white/50 transition-all duration-300 cursor-default hover:scale-105">
                 {company}
               </span>
             ))}
