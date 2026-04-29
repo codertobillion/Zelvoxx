@@ -23,7 +23,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
   const displayData = data?.length ? data : testimonials;
 
   return (
-    <section id="testimonials" className="bg-background relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
       <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-primary/5 blur-[150px] pointer-events-none z-0 rounded-full" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -66,18 +66,18 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="snap-center shrink-0 w-[85vw] sm:w-[400px] glass-premium premium-border soft-glow p-8 rounded-[2rem] relative group bg-gradient-to-b from-white/[0.03] to-transparent hover:border-primary/40 hover:-translate-y-2 transition-all duration-500"
+                className="snap-center shrink-0 w-[85vw] sm:w-[420px] min-h-[360px] glass-premium premium-border soft-glow p-8 rounded-[2rem] relative group bg-gradient-to-b from-white/[0.03] to-transparent hover:border-primary/40 hover:-translate-y-2 transition-all duration-500 flex flex-col"
               >
                 <div className="absolute bottom-6 right-6 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500 text-primary">
                   <Quote className="w-16 h-16 drop-shadow-[0_0_15px_rgba(123,97,255,0.8)]" />
                 </div>
                 
                 <p 
-                  className="text-white/70 font-body text-lg leading-relaxed mb-8 relative z-10 h-[120px] md:h-[140px]"
+                  className="text-white/70 font-body text-lg leading-relaxed mb-10 relative z-10 min-h-[170px]"
                   dangerouslySetInnerHTML={{ __html: `"${highlightText(test.content)}"` }}
                 />
 
-                <div className="flex items-center gap-4 relative z-10">
+                <div className="flex items-center gap-4 relative z-10 mt-auto pt-2">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent p-[2px] shadow-[0_0_15px_rgba(123,97,255,0.4)] shrink-0">
                     <div className="w-full h-full rounded-full bg-[#111116] border-[2px] border-[#0B0B0B] flex items-center justify-center text-white font-bold font-heading text-sm">
                       {test.name.charAt(0)}

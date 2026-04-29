@@ -13,7 +13,7 @@ const steps = [
 
 export default function SystemFlow() {
   return (
-    <section id="system" className="py-28 md:py-40 relative overflow-hidden">
+    <section id="system" className="py-32 md:py-44 relative overflow-hidden border-y border-white/5">
       
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
@@ -38,12 +38,56 @@ export default function SystemFlow() {
           </div>
 
           {/* RIGHT FLOW */}
-          <div className="relative w-full overflow-x-auto pb-8">
+          <div className="relative w-full overflow-x-auto pb-10">
             <div className="min-w-[600px] flex justify-between items-center relative">
 
               {/* LINE */}
-              <div className="absolute top-1/2 left-0 w-full h-[3px] -translate-y-1/2 z-0 px-10">
-                <div className="w-full h-[2px] bg-white/10" />
+              <div className="absolute top-1/2 left-0 w-full h-10 -translate-y-1/2 z-0 px-10">
+                <svg width="100%" height="100%" preserveAspectRatio="none" className="overflow-visible">
+                  <path
+                    d="M 0,20 C 180,20 220,20 400,20 C 580,20 620,20 800,20 C 980,20 1020,20 1200,20"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.08)"
+                    strokeWidth="2"
+                    strokeDasharray="6 8"
+                  />
+                  <motion.path
+                    d="M 0,20 C 180,20 220,20 400,20 C 580,20 620,20 800,20 C 980,20 1020,20 1200,20"
+                    fill="none"
+                    stroke="url(#flowGradient)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0.05, pathOffset: 0 }}
+                    animate={{ pathLength: [0.1, 0.2, 0.1], pathOffset: [0, 1] }}
+                    transition={{ duration: 3.6, repeat: Infinity, ease: "linear" }}
+                    style={{ filter: "drop-shadow(0 0 8px rgba(123,97,255,0.9))" }}
+                  />
+                  <motion.circle
+                    cx="0"
+                    cy="20"
+                    r="4"
+                    fill="#7B61FF"
+                    animate={{ cx: [0, 1200] }}
+                    transition={{ duration: 3.6, repeat: Infinity, ease: "linear" }}
+                    style={{ filter: "drop-shadow(0 0 10px rgba(123,97,255,1))" }}
+                  />
+                  <motion.circle
+                    cx="0"
+                    cy="20"
+                    r="3"
+                    fill="#2D9CDB"
+                    animate={{ cx: [0, 1200] }}
+                    transition={{ duration: 4.4, repeat: Infinity, ease: "linear", delay: 0.8 }}
+                    style={{ filter: "drop-shadow(0 0 8px rgba(45,156,219,1))" }}
+                  />
+                  <defs>
+                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#7B61FF" />
+                      <stop offset="50%" stopColor="#A88BFF" />
+                      <stop offset="100%" stopColor="#2D9CDB" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
 
               {/* NODES */}

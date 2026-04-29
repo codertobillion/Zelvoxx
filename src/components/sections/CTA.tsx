@@ -11,9 +11,10 @@ export default function CTA() {
       {/* Space Background */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://images.unsplash.com/photo-1534796636912-3652c7451fdb?q=80&w=2070&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80"
           alt="Space Background"
           fill
+          sizes="100vw"
           className="object-cover opacity-30 mix-blend-screen"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -24,37 +25,33 @@ export default function CTA() {
         <motion.div 
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="p-12 md:p-24 rounded-[3rem] relative overflow-hidden shadow-2xl group premium-border soft-glow glass-premium"
+          className="p-12 md:p-24 rounded-[3rem] relative overflow-hidden shadow-2xl group border border-white/10 glass-premium"
         >
-          {/* Animated Gradient Background Wrapper */}
           <div className="absolute inset-0 bg-[#0B0B0B]/60 backdrop-blur-md z-0" />
-          
-          {/* Internal premium gradient decoration */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-80 pointer-events-none z-0" />
 
-          {/* Floating Avatars */}
           <motion.div 
             animate={{ y: [-10, 10, -10] }} 
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", type: "tween" }}
             className="absolute top-12 left-12 md:top-24 md:left-24 w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-white/10 overflow-hidden shadow-lg shadow-primary/20 z-0 hidden sm:block"
           >
-            <Image src="https://i.pravatar.cc/150?u=1" alt="Avatar" fill className="object-cover" />
+            <Image src="https://i.pravatar.cc/150?u=11" alt="Client avatar" fill sizes="64px" className="object-cover" />
           </motion.div>
           <motion.div 
             animate={{ y: [10, -10, 10] }} 
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1, type: "tween" }}
             className="absolute bottom-12 right-12 md:bottom-24 md:right-24 w-14 h-14 md:w-20 md:h-20 rounded-full border-2 border-white/10 overflow-hidden shadow-lg shadow-accent/20 z-0 hidden sm:block"
           >
-            <Image src="https://i.pravatar.cc/150?u=2" alt="Avatar" fill className="object-cover" />
+            <Image src="https://i.pravatar.cc/150?u=22" alt="Client avatar" fill sizes="80px" className="object-cover" />
           </motion.div>
           <motion.div 
             animate={{ y: [-5, 5, -5] }} 
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5, type: "tween" }}
             className="absolute top-1/2 right-8 md:right-16 w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-white/10 overflow-hidden shadow-lg shadow-white/10 z-0 hidden lg:block"
           >
-            <Image src="https://i.pravatar.cc/150?u=3" alt="Avatar" fill className="object-cover" />
+            <Image src="https://i.pravatar.cc/150?u=33" alt="Client avatar" fill sizes="56px" className="object-cover" />
           </motion.div>
 
           <div className="relative z-10 flex flex-col items-center">
@@ -66,7 +63,7 @@ export default function CTA() {
               className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
             >
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-bold text-white uppercase tracking-widest">Built for Growing Businesses</span>
+              Built for Growing Businesses
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase tracking-tighter mb-8 leading-[1.1] drop-shadow-2xl">
@@ -80,13 +77,21 @@ export default function CTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-12 py-6 rounded-full font-black text-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] tracking-wide w-full sm:w-auto uppercase overflow-hidden">
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-12 py-6 rounded-full font-black text-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] tracking-wide w-full sm:w-auto uppercase overflow-hidden"
+              >
                 <span className="absolute inset-0 bg-gradient-to-r from-white via-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <PhoneCall className="w-5 h-5 relative z-10" />
                 <span className="relative z-10">Book Your Growth Call</span>
               </a>
               
-              <a href="#pricing" className="group inline-flex items-center justify-center gap-3 bg-transparent hover:bg-white/5 border border-white/20 text-white px-12 py-6 rounded-full font-bold text-lg transition-all hover:scale-105 backdrop-blur-md tracking-wide w-full sm:w-auto uppercase">
+              <a
+                href="#pricing"
+                className="group inline-flex items-center justify-center gap-3 bg-transparent hover:bg-white/5 border border-white/20 text-white px-12 py-6 rounded-full font-bold text-lg transition-all hover:scale-105 backdrop-blur-md tracking-wide w-full sm:w-auto uppercase"
+              >
                 See Pricing
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
               </a>

@@ -12,15 +12,21 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
   const displayData = data?.length ? data : projects;
 
   return (
-    <section id="portfolio" className="bg-background relative overflow-hidden border-t border-white/5">
+    <section id="portfolio" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
+      <motion.div
+        aria-hidden="true"
+        animate={{ opacity: [0.16, 0.28, 0.16], scale: [1, 1.08, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-32 left-1/3 w-[460px] h-[460px] bg-primary/15 blur-[120px] rounded-full pointer-events-none"
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">
           
           {/* Left Column: Intro */}
-          <div className="sticky top-32 space-y-8">
+          <div className="sticky top-32 space-y-8 lg:pr-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -39,6 +45,9 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
               Results that <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">speak for themselves.</span>
             </motion.h2>
+            <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-sm">
+              Conversion-focused systems, measured by pipeline and revenue outcomes.
+            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -61,7 +70,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-
+                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium bg-[#111116] cursor-pointer border border-white/10 hover:border-primary/40 transition-all duration-500"
               >
                 {project.image ? (
                   <Image 
