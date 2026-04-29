@@ -27,7 +27,8 @@ const processes = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="process" className="bg-[#0c0d14] relative overflow-hidden border-t border-white/5">
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(123,97,255,0.04),transparent_30%,transparent_70%,rgba(45,156,219,0.04))]" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
           <motion.div

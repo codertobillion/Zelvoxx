@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BarChart2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/src/constants/data";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
   const displayData = data?.length ? data : projects;
 
   return (
-    <section id="portfolio" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="portfolio" className="bg-background relative overflow-hidden border-t border-white/5">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -60,7 +60,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium bg-[#111116] cursor-pointer"
+                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium premium-border soft-glow bg-[#111116] cursor-pointer"
               >
                 {project.image ? (
                   <Image 

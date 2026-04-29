@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 
 import { testimonials } from "@/src/constants/data";
 import { TestimonialType } from "@/src/types";
@@ -23,7 +23,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
   const displayData = data?.length ? data : testimonials;
 
   return (
-    <section id="testimonials" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="bg-background relative overflow-hidden border-t border-white/5">
       <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-primary/5 blur-[150px] pointer-events-none z-0 rounded-full" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -63,7 +63,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="snap-center shrink-0 w-[85vw] sm:w-[400px] glass-premium p-8 rounded-[2rem] relative group border border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent hover:border-primary/40 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(123,97,255,0.2)] transition-all duration-500"
+                className="snap-center shrink-0 w-[85vw] sm:w-[400px] glass-premium premium-border soft-glow p-8 rounded-[2rem] relative group bg-gradient-to-b from-white/[0.03] to-transparent hover:border-primary/40 hover:-translate-y-2 transition-all duration-500"
               >
                 <div className="absolute bottom-6 right-6 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500 text-primary">
                   <Quote className="w-16 h-16 drop-shadow-[0_0_15px_rgba(123,97,255,0.8)]" />

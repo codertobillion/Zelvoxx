@@ -17,7 +17,7 @@ export default function Services({ data }: { data?: ServiceType[] }) {
   }) : services;
 
   return (
-    <section id="services" className="relative py-28 md:py-40 bg-background overflow-hidden border-t border-white/5">
+    <section id="services" className="relative bg-background overflow-hidden border-t border-white/5">
       {/* Premium Background gradients */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] z-0 rounded-full pointer-events-none -translate-y-1/2" />
       
@@ -70,7 +70,7 @@ export default function Services({ data }: { data?: ServiceType[] }) {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -5, scale: 1.01 }}
-                className="glass-premium p-8 rounded-2xl border border-white/5 relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent"
+                className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                 
