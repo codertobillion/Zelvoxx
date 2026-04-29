@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BarChart2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/src/constants/data";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
   const displayData = data?.length ? data : projects;
 
   return (
-    <section id="portfolio" className="py-28 md:py-40 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="portfolio" className="bg-background relative overflow-hidden border-t border-white/5">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -60,7 +60,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium bg-[#111116] cursor-pointer"
+                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium premium-border soft-glow bg-[#111116] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
               >
                 {project.image ? (
                   <Image 
@@ -90,7 +90,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
                     {/* Detailed metrics reveal on hover */}
                     <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-500 delay-100 mt-2 flex flex-col gap-3">
                       <p className="text-xs text-white/70 line-clamp-2 leading-relaxed">
-                        Complete digital overhaul resulting in scalable acquisition architecture.
+                        {project.result} through a tailored conversion-focused growth system.
                       </p>
                       <button className="self-start px-4 py-2 bg-primary/20 hover:bg-primary/40 border border-primary/30 rounded-lg text-xs font-bold text-white transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(123,97,255,0.2)]">
                         View Case Study <ArrowUpRight className="w-3 h-3" />

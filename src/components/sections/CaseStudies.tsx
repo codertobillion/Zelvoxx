@@ -10,7 +10,7 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
   const displayData = data?.length ? data : caseStudies;
 
   return (
-    <section id="case-studies" className="py-28 md:py-40 bg-background relative border-t border-white/5">
+    <section id="case-studies" className="bg-[#101018] relative border-t border-white/5">
       {/* Background gradients */}
       <div className="absolute top-1/4 left-0 w-full h-[300px] bg-primary/5 blur-[120px] pointer-events-none z-0 -skew-y-12" />
 
@@ -51,7 +51,7 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="glass-premium rounded-2xl p-8 border border-white/5 relative overflow-hidden group hover:border-primary/30 transition-colors bg-gradient-to-b from-white/[0.03] to-transparent"
+                className="glass-premium premium-border soft-glow rounded-2xl p-8 relative overflow-hidden group hover:border-primary/30 transition-all duration-500 bg-gradient-to-b from-white/[0.04] to-transparent hover:-translate-y-1"
               >
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 
