@@ -83,18 +83,11 @@ export default function SystemFlow() {
               <motion.div
                 className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(123,97,255,0.9)] z-20"
                 initial={{ x: 0, opacity: 0 }}
-                whileInView={{ x: [0, 560, 0], opacity: [0, 1, 0], scale: [0.8, 1.1, 0.8] }}
+
                 viewport={{ once: false }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
 
-              <motion.div
-                className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 rounded-full bg-accent shadow-[0_0_18px_rgba(45,156,219,0.9)] z-20"
-                initial={{ x: 0, opacity: 0 }}
-                whileInView={{ x: [0, 560], opacity: [0, 1, 0] }}
-                viewport={{ once: false }}
-                transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-              />
 
               {/* Nodes */}
               {steps.map((step, idx) => (
