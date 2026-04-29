@@ -32,6 +32,15 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  /* Lightweight site-wide micro interactions */
+  a, button {
+    @apply transition-all duration-300;
+  }
+
+  a:hover, button:hover {
+    @apply brightness-110;
+  }
 }
 
 /* Hide default cursor on desktop devices to support Custom Cursor */

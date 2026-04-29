@@ -66,24 +66,24 @@ export default function CTA() {
               className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
             >
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-bold text-white uppercase tracking-widest">Transform Your Business</span>
+              <span className="text-sm font-bold text-white uppercase tracking-widest">Built for Growing Businesses</span>
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase tracking-tighter mb-8 leading-[1.1] drop-shadow-2xl">
-              Ready to stop wasting time and start <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient relative inline-block">
-                dominating your market?
+              Ready to turn your brand into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient relative inline-block">
+                predictable growth engine?
               </span>
             </h2>
             
             <p className="text-xl md:text-2xl text-white/70 font-body font-light mb-14 max-w-3xl mx-auto leading-relaxed">
-              Stop bleeding cash on broken marketing and weak templates. We build <strong className="text-white font-medium">lethal growth systems</strong> that crush your competition and scale your revenue on autopilot.
+              We design and run complete growth systems that bring qualified leads, improve conversion, and help you scale revenue with confidence.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-12 py-6 rounded-full font-black text-lg transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] tracking-wide w-full sm:w-auto uppercase overflow-hidden">
                 <span className="absolute inset-0 bg-gradient-to-r from-white via-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <PhoneCall className="w-5 h-5 relative z-10" />
-                <span className="relative z-10">Book a Strategy Call</span>
+                <span className="relative z-10">Book Your Growth Call</span>
               </a>
               
               <a href="#pricing" className="group inline-flex items-center justify-center gap-3 bg-transparent hover:bg-white/5 border border-white/20 text-white px-12 py-6 rounded-full font-bold text-lg transition-all hover:scale-105 backdrop-blur-md tracking-wide w-full sm:w-auto uppercase">
@@ -103,7 +103,7 @@ export default function CTA() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
               </span>
-              Spots are limited. Only <span className="text-white">2 engineering slots</span> left this month.
+              Limited onboarding this month. Only <span className="text-white">2 build slots</span> left.
             </motion.p>
           </div>
         </motion.div>

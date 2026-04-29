@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, BarChart2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/src/constants/data";
 import Image from "next/image";
 import { ProjectType } from "@/src/types";
+import { urlForImage } from "@/sanity/lib/image";
 
 export default function Portfolio({ data }: { data?: ProjectType[] }) {
   const displayData = data?.length ? data : projects;
@@ -45,7 +46,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <a href="#work" className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/10 hover:border-white/30 px-6 py-3 rounded-lg transition-all text-sm font-medium mt-4">
+              <a href="#portfolio" className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/10 hover:border-white/30 px-6 py-3 rounded-lg transition-all text-sm font-medium mt-4">
                 View All Projects <ArrowUpRight className="w-4 h-4" />
               </a>
             </motion.div>
@@ -64,7 +65,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
               >
                 {project.image ? (
                   <Image 
-                    src={require("@/sanity/lib/image").urlForImage(project.image)?.url() || ""} 
+                    src={urlForImage(project.image)?.url() || ""} 
                     alt={project.clientName || "Portfolio Project"} 
                     fill
                     className="object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 mix-blend-overlay"
@@ -99,7 +100,12 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
 
                     <div className="flex items-center gap-3 mt-4">
                       <div className="h-[2px] w-6 bg-accent transition-all duration-500 group-hover:w-10 shadow-[0_0_10px_rgba(45,156,219,0.5)]" />
-                      <p className="text-accent font-bold font-body text-sm tracking-wide drop-shadow-md">{project.result}</p>
+                      <p className="text-accent font-bold font-body text-sm tracking-wide drop-shadow-md transition-all duration-400 group-hover:translate-x-1">
+                        {project.result}
+                      </p>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-1 rounded-full border border-primary/40 bg-primary/10 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-400">
+                        Results
+                      </span>
                     </div>
                   </div>
                 </div>

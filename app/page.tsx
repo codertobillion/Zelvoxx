@@ -2,6 +2,7 @@ import Navbar from "@/src/components/layout/Navbar";
 import Hero from "@/src/components/sections/Hero";
 import Problem from "@/src/components/sections/Problem";
 import SystemFlow from "@/src/components/sections/SystemFlow";
+import BuiltForGrowth from "@/src/components/sections/BuiltForGrowth";
 import Services from "@/src/components/sections/Services";
 import Portfolio from "@/src/components/sections/Portfolio";
 import CaseStudies from "@/src/components/sections/CaseStudies";
@@ -32,6 +33,7 @@ export default async function Home() {
       <Hero />
       <Problem />
       <SystemFlow />
+      <BuiltForGrowth />
       <Services data={servicesData} />
       <Portfolio data={portfolioData} />
       <CaseStudies data={caseStudiesData} />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 
 import { testimonials } from "@/src/constants/data";
 import { TestimonialType } from "@/src/types";
@@ -52,6 +52,9 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
                 our word for it.
               </span>
             </motion.h2>
+            <p className="text-white/65 text-sm leading-relaxed max-w-sm">
+              Real operators sharing what changed after the system was live: calmer teams, stronger pipelines, and predictable revenue.
+            </p>
           </div>
 
           {/* Right Column: Cards Slider */}
