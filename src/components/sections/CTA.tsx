@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function CTA() {
   return (
-    <section className="py-28 md:py-40 bg-background relative overflow-hidden" id="cta">
+    <section className="bg-background relative overflow-hidden" id="cta">
       {/* Space Background */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -26,7 +26,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="p-12 md:p-24 rounded-[3rem] relative overflow-hidden shadow-2xl group border border-white/10 glass-premium"
+          className="p-12 md:p-24 rounded-[3rem] relative overflow-hidden shadow-2xl group premium-border soft-glow glass-premium"
         >
           {/* Animated Gradient Background Wrapper */}
           <div className="absolute inset-0 bg-[#0B0B0B]/60 backdrop-blur-md z-0" />
