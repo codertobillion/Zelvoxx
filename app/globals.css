@@ -49,3 +49,38 @@
     cursor: none !important;
   }
 }
+
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased font-body;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(123, 97, 255, 0.14), transparent 35%),
+      radial-gradient(circle at 85% 10%, rgba(45, 156, 219, 0.12), transparent 32%),
+      linear-gradient(180deg, #0b0b0b 0%, #09090f 100%);
+  }
+
+  section {
+    @apply py-24 md:py-36;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .premium-border {
+    @apply border border-white/10;
+    background: linear-gradient(#0f0f16, #0f0f16) padding-box, linear-gradient(135deg, rgba(123,97,255,.45), rgba(45,156,219,.25)) border-box;
+    border: 1px solid transparent;
+  }
+
+  .soft-glow {
+    box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 18px 50px -24px rgba(123,97,255,.6), 0 12px 30px -20px rgba(45,156,219,.5);
+  }
+
+  .reveal-up {
+    @apply transition-all duration-500 ease-out;
+  }
+}

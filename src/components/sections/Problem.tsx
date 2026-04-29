@@ -12,7 +12,8 @@ const painPoints = [
 
 export default function Problem() {
   return (
-    <section id="problem" className="py-28 md:py-40 relative overflow-hidden">
+    <section id="problem" className="relative overflow-hidden border-t border-white/5 bg-[#0d0d12]">
+      <div className="absolute inset-0 pointer-events-none"><div className="absolute -top-24 left-0 w-[45vw] h-[45vw] bg-primary/10 blur-[140px]" /><div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-accent/10 blur-[140px]" /></div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">
           
@@ -50,7 +51,7 @@ export default function Problem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-premium p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 group bg-gradient-to-b from-white/[0.03] to-transparent"
+                className="glass-premium premium-border soft-glow p-8 rounded-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] group bg-gradient-to-b from-white/[0.04] to-transparent"
               >
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   <XCircle className="w-6 h-6 text-white/50 group-hover:text-primary transition-colors" />
