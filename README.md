@@ -1,41 +1,31 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zelvoxx
+
+Zelvoxx is a modern digital growth systems agency website built with Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion, and Sanity CMS.
+
+The project is designed as a high-converting premium landing experience with dark UI, gradient/glow styling, and modular sections for services, portfolio, testimonials, and conversion-focused CTAs.
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Sanity
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Zelvoxx
-Zelvox is a modern digital growth systems agency website built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS.  This project focuses on creating a high-converting, scalable, and visually premium experience using a dark UI, smooth animations, and modular architecture.  Designed to showcase services, case studies, and growth systems
->>>>>>> 13184cebbb960d23ab0e77183e484f61dc3fdd47
+```bash
+npm run build
+npm run start
+```
