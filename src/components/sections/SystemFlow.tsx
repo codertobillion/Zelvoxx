@@ -13,9 +13,9 @@ const steps = [
 
 export default function SystemFlow() {
   return (
-    <section id="system" className="relative overflow-hidden">
+<
       {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/15 via-background to-[#0b0b12] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-center">
@@ -36,7 +36,7 @@ export default function SystemFlow() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-[1.05] tracking-tight"
             >
               A proven system that turns brands into <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
@@ -46,14 +46,14 @@ export default function SystemFlow() {
           </div>
 
           {/* Right Column: Flow */}
-          <div className="relative w-full overflow-x-auto pb-8 scrollbar-hide">
+          <div className="relative w-full overflow-x-auto pb-8 scrollbar-hide glass-premium premium-border soft-glow rounded-3xl p-8 md:p-10">
             <div className="min-w-[600px] flex justify-between items-center relative">
               
               {/* Animated SVG Connecting Line */}
               <div className="absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 z-0 px-8">
                 <svg width="100%" height="100%" preserveAspectRatio="none" className="overflow-visible">
                   <path 
-                    d="M 0,0 L 1000,0" 
+                    d="M 0,0 C 220,0 260,-16 500,-16 C 730,-16 780,0 1000,0" 
                     fill="none" 
                     stroke="rgba(255,255,255,0.1)" 
                     strokeWidth="2" 
@@ -64,7 +64,7 @@ export default function SystemFlow() {
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 2.4, ease: "easeInOut", delay: 0.2 }}
-                    d="M 0,0 L 1000,0" 
+
                     fill="none" 
                     stroke="url(#gradient)" 
                     strokeWidth="3"
@@ -84,10 +84,6 @@ export default function SystemFlow() {
                 className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(123,97,255,0.9)] z-20"
                 initial={{ x: 0, opacity: 0 }}
 
-                viewport={{ once: false }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-
 
               {/* Nodes */}
               {steps.map((step, idx) => (
@@ -97,7 +93,7 @@ export default function SystemFlow() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 + (idx * 0.15) }}
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full glass-premium flex flex-col items-center justify-center relative bg-[#0B0B0B] group-hover:border-primary/80 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.8)] group-hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group-hover:-translate-y-2 group-hover:scale-105 cursor-pointer"
+
                   >
                     <div className="text-white group-hover:text-primary transition-colors duration-300 scale-125 group-hover:scale-150">
                       {step.icon}
