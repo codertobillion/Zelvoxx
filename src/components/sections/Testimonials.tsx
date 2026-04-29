@@ -8,7 +8,7 @@ import { TestimonialType } from "@/src/types";
 
 // Helper function to highlight emotional/impactful words
 const highlightText = (text: string) => {
-  const highlights = ["machine that prints money", "doubled", "insane", "closed our Series A", "permanently solves"];
+  const highlights = ["machine that prints money", "doubled", "insane", "closed our Series A", "permanently solves", "scale", "revenue", "ROI", "growth"];
   
   let result = text;
   highlights.forEach(word => {

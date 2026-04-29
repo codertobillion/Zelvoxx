@@ -63,7 +63,7 @@ export default function SystemFlow() {
                     initial={{ pathLength: 0, opacity: 0 }}
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 2, ease: "easeInOut", delay: 0.2 }}
+                    transition={{ duration: 2.4, ease: "easeInOut", delay: 0.2 }}
                     d="M 0,0 L 1000,0" 
                     fill="none" 
                     stroke="url(#gradient)" 
@@ -83,10 +83,11 @@ export default function SystemFlow() {
               <motion.div
                 className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(123,97,255,0.9)] z-20"
                 initial={{ x: 0, opacity: 0 }}
-                whileInView={{ x: [0, 560, 0], opacity: [0, 1, 0] }}
+
                 viewport={{ once: false }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
+
 
               {/* Nodes */}
               {steps.map((step, idx) => (

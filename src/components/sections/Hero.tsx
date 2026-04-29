@@ -30,6 +30,14 @@ export default function Hero() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full mix-blend-screen" 
         />
+        <motion.div
+          aria-hidden
+          className="absolute inset-0 opacity-40 bg-[linear-gradient(120deg,rgba(123,97,255,0.16),transparent_35%,rgba(45,156,219,0.16)_70%,transparent)]"
+          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          style={{ backgroundSize: "200% 200%" }}
+        />
+
         {/* Particles placeholder */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay z-0" />
       </div>

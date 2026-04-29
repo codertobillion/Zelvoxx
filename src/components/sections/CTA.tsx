@@ -70,13 +70,13 @@ export default function CTA() {
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase tracking-tighter mb-8 leading-[1.1] drop-shadow-2xl">
-              Ready to stop wasting time and start <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient relative inline-block">
-                dominating your market?
+              Ready to make your marketing predictable and <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient relative inline-block">
+                growing with confidence?
               </span>
             </h2>
             
             <p className="text-xl md:text-2xl text-white/70 font-body font-light mb-14 max-w-3xl mx-auto leading-relaxed">
-              Stop bleeding cash on broken marketing and weak templates. We build <strong className="text-white font-medium">lethal growth systems</strong> that crush your competition and scale your revenue on autopilot.
+              You deserve a growth engine that brings qualified leads, steady revenue, and full clarity on what is working. We build <strong className="text-white font-medium">high-converting systems</strong> tailored to your business goals.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
