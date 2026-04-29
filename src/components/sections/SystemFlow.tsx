@@ -74,8 +74,8 @@ export default function SystemFlow() {
             </p>
           </div>
 
-        </div>
-      </div>
-    </section>
-  );
-}
+         </div>
+       </div>
+     </section>
+   );
+ }
