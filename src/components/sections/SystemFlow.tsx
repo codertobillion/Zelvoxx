@@ -13,7 +13,7 @@ const steps = [
 
 export default function SystemFlow() {
   return (
-    <section id="system" className="relative overflow-hidden bg-[#11131d] border-t border-white/5">
+<
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/15 via-background to-[#0b0b12] pointer-events-none" />
 
@@ -64,7 +64,7 @@ export default function SystemFlow() {
                     whileInView={{ pathLength: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 2.4, ease: "easeInOut", delay: 0.2 }}
-                    d="M 0,0 C 220,0 260,-16 500,-16 C 730,-16 780,0 1000,0" 
+
                     fill="none" 
                     stroke="url(#gradient)" 
                     strokeWidth="3"
@@ -83,23 +83,7 @@ export default function SystemFlow() {
               <motion.div
                 className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(123,97,255,0.9)] z-20"
                 initial={{ x: 0, opacity: 0 }}
-                whileInView={{ x: [0, 560, 0], opacity: [0, 1, 0], scale: [0.8, 1.1, 0.8] }}
-                viewport={{ once: false }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
 
-              <motion.div
-                className="absolute top-1/2 left-0 -translate-y-1/2 w-2 h-2 rounded-full bg-accent shadow-[0_0_18px_rgba(45,156,219,0.9)] z-20"
-                initial={{ x: 0, opacity: 0 }}
-                whileInView={{ x: [0, 560], opacity: [0, 1, 0] }}
-                viewport={{ once: false }}
-                transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-              />
-
-              <div className="absolute top-1/2 left-[10%] w-[14%] h-1 rounded-full bg-gradient-to-r from-primary/60 to-accent/60 blur-[1px] opacity-70" />
-              <div className="absolute top-1/2 left-[30%] w-[14%] h-1 rounded-full bg-gradient-to-r from-primary/60 to-accent/60 blur-[1px] opacity-60" />
-              <div className="absolute top-1/2 left-[50%] w-[14%] h-1 rounded-full bg-gradient-to-r from-primary/60 to-accent/60 blur-[1px] opacity-60" />
-              <div className="absolute top-1/2 left-[70%] w-[14%] h-1 rounded-full bg-gradient-to-r from-primary/60 to-accent/60 blur-[1px] opacity-70" />
 
               {/* Nodes */}
               {steps.map((step, idx) => (
@@ -109,7 +93,7 @@ export default function SystemFlow() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 + (idx * 0.15) }}
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full glass-premium premium-border flex flex-col items-center justify-center relative bg-[#0B0B0B] group-hover:border-primary/90 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.8)] group-hover:shadow-[0_0_40px_rgba(123,97,255,0.55)] group-hover:-translate-y-2 group-hover:scale-105 cursor-pointer"
+
                   >
                     <div className="text-white group-hover:text-primary transition-colors duration-300 scale-125 group-hover:scale-150">
                       {step.icon}

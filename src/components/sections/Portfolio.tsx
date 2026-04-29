@@ -60,7 +60,7 @@ export default function Portfolio({ data }: { data?: ProjectType[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden glass-premium premium-border soft-glow bg-[#111116] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
+
               >
                 {project.image ? (
                   <Image 
