@@ -37,7 +37,7 @@ export default async function Home() {
       <SystemFlow />
       <BuiltForGrowth />
       <Services data={servicesData} />
-      <Portfolio data={portfolioData} />
+      <Portfolio />
       <CaseStudies data={caseStudiesData} />
       <Testimonials data={testimonialsData} />
       <Pricing />
