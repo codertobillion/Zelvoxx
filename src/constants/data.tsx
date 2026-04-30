@@ -123,8 +123,8 @@ export const legalLinks = [
 ];
 
 export const footerNavLinks = [
-  { label: "The Problem", url: "#problem" },
-  { label: "System", url: "#system" },
-  { label: "Portfolio", url: "#portfolio" },
-  { label: "Pricing", url: "#pricing" },
+  { label: "Our Work", url: "/portfolio" },
+  { label: "Case Studies", url: "/case-studies" },
+  { label: "Pricing", url: "/pricing" },
+  { label: "Reviews", url: "/testimonials" },
 ];

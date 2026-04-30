@@ -18,7 +18,32 @@ const particles = [
   { size: 4, x: "10%", y: "50%", delay: 1.5, duration: 23 },
 ];
 
-export default function Hero() {
+interface HeroData {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+interface StatItem {
+  label?: string;
+  value?: string;
+}
+
+interface HeroProps {
+  data?: HeroData | null;
+  stats?: StatItem[];
+}
+
+// Default stats fallback
+const defaultStats = [
+  { value: "250+", label: "Projects Delivered" },
+  { value: "150+", label: "Happy Clients" },
+  { value: "8X", label: "Average ROI Generated" },
+  { value: "24/7", label: "Growth Support" },
+];
+
+export default function Hero({ data, stats }: HeroProps) {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-10">
       <div className="absolute inset-0 z-0">
@@ -121,7 +146,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mb-6"
           >
-            <span className="text-sm font-bold tracking-widest text-primary uppercase">Growth Systems Agency</span>
+            <span className="text-sm font-bold tracking-widest text-primary uppercase">
+              {data?.title || "Growth Systems Agency"}
+            </span>
           </motion.div>
 
           {/* Main heading with subtle glow effect */}
@@ -154,7 +181,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-lg font-body font-light leading-relaxed"
           >
-            We build complete digital ecosystems that generate leads, increase sales, and scale your brand.
+            {data?.subtitle || "We build complete digital ecosystems that generate leads, increase sales, and scale your brand."}
           </motion.p>
 
           <motion.div
@@ -164,7 +191,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
           >
             <motion.a
-              href={CALENDLY_URL}
+              href={data?.ctaLink || CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
@@ -184,7 +211,7 @@ export default function Hero() {
                   boxShadow: "0 0 40px rgba(123,97,255,0.5), 0 10px 40px rgba(123,97,255,0.3)",
                 }}
               />
-              <span className="relative z-10">Book a Call</span>
+              <span className="relative z-10">{data?.ctaText || "Book a Call"}</span>
             </motion.a>
             <motion.a
               href="#contact"
@@ -214,25 +241,19 @@ export default function Hero() {
             className="w-full max-w-sm glass-premium rounded-3xl p-8 border border-white/10 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-8 backdrop-blur-xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none" />
-            <div className="relative z-10 flex flex-col gap-2">
-              <h3 className="text-3xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">250+</h3>
-              <p className="text-sm text-white/70 font-medium tracking-wide">Projects Delivered</p>
-            </div>
-            <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent relative z-10" />
-            <div className="relative z-10 flex flex-col gap-2">
-              <h3 className="text-3xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">150+</h3>
-              <p className="text-sm text-white/70 font-medium tracking-wide">Happy Clients</p>
-            </div>
-            <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent relative z-10" />
-            <div className="relative z-10 flex flex-col gap-2">
-              <h3 className="text-3xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">8X</h3>
-              <p className="text-sm text-white/70 font-medium tracking-wide">Average ROI Generated</p>
-            </div>
-            <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent relative z-10" />
-            <div className="relative z-10 flex flex-col gap-2">
-              <h3 className="text-3xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">24/7</h3>
-              <p className="text-sm text-white/70 font-medium tracking-wide">Growth Support</p>
-            </div>
+            {(stats?.length ? stats : defaultStats).map((stat, idx) => (
+              <div key={idx}>
+                <div className="relative z-10 flex flex-col gap-2">
+                  <h3 className="text-3xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                    {stat.value}
+                  </h3>
+                  <p className="text-sm text-white/70 font-medium tracking-wide">{stat.label}</p>
+                </div>
+                {idx < (stats?.length ? stats : defaultStats).length - 1 && (
+                  <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent relative z-10 mt-8" />
+                )}
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>

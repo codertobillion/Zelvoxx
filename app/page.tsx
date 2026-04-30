@@ -13,31 +13,47 @@ import Process from "@/src/components/sections/Process";
 import WhyZelvox from "@/src/components/sections/WhyZelvox";
 import CTA from "@/src/components/sections/CTA";
 import Footer from "@/src/components/layout/Footer";
-import { client } from "@/sanity/lib/client";
-import { servicesQuery, portfolioQuery, caseStudiesQuery, testimonialsQuery } from "@/sanity/lib/queries";
 
-export const revalidate = 60; // REVALIDATE DATA EVERY 60 SECONDS
+import { client } from "@/sanity/lib/client";
+import {
+  heroQuery,
+  statsQuery,
+  servicesQuery,
+  caseStudiesQuery,
+  testimonialsQuery,
+} from "@/sanity/lib/queries";
+
+export const revalidate = 60;
 
 export default async function Home() {
-  const [servicesData, portfolioData, caseStudiesData, testimonialsData] = await Promise.all([
+  const [
+    heroData,
+    statsData,
+    servicesData,
+    caseStudiesData,
+    testimonialsData,
+  ] = await Promise.all([
+    client.fetch(heroQuery).catch(() => null),
+    client.fetch(statsQuery).catch(() => []),
     client.fetch(servicesQuery).catch(() => []),
-    client.fetch(portfolioQuery).catch(() => []),
     client.fetch(caseStudiesQuery).catch(() => []),
-    client.fetch(testimonialsQuery).catch(() => [])
+    client.fetch(testimonialsQuery).catch(() => []),
   ]);
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/30 relative">
       {/* Global Noise Texture for Premium Depth */}
       <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }}></div>
+
       <Navbar />
-      <Hero />
+
+      <Hero data={heroData} stats={statsData} />
       <TrustedBy />
       <Problem />
       <SystemFlow />
       <BuiltForGrowth />
       <Services data={servicesData} />
-      <Portfolio />
+      <Portfolio data={caseStudiesData} />
       <CaseStudies data={caseStudiesData} />
       <Testimonials data={testimonialsData} />
       <Pricing />
@@ -45,6 +61,7 @@ export default async function Home() {
       <WhyZelvox />
       <CTA />
       <Footer />
+
     </main>
   );
 }
