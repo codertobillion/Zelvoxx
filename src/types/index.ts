@@ -15,7 +15,7 @@ export interface ProjectType {
   color?: string; // local fallback shape
   colorGradient?: string; // sanity shape
   image?: any; // Sanity image ref
-  slug?: string;
+  slug?: { current: string };
 }
 
 export interface CaseStudyType {

@@ -6,13 +6,14 @@ export const caseStudiesQuery = groq`
   *[_type == "caseStudy"]{
     _id,
     title,
-    clientName,
-    niche,
+    "clientName": coalesce(clientName, title),
     industry,
     problem,
     system,
     result,
+    niche,
     image,
+    color,
     colorGradient,
     "slug": slug.current
   }

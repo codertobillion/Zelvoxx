@@ -8,7 +8,7 @@ import { ProjectType } from "@/src/types";
 import { urlForImage } from "@/sanity/lib/image";
 
 interface PortfolioContentProps {
-  data: ProjectType[];
+  data: any[];
 }
 
 export default function PortfolioContent({ data }: PortfolioContentProps) {
@@ -110,14 +110,14 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                       whileHover={{ opacity: 1 }}
                       className="absolute top-6 left-6 px-3 py-1.5 text-xs font-semibold bg-white/10 backdrop-blur-sm rounded-lg text-white border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-300"
                     >
-                      {project.niche}
+                      {project.niche || "Case Study"}
                     </motion.span>
 
                     {/* Content that transforms on hover */}
                     <div className="relative">
                       {/* Project name - always visible */}
                       <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
-                        {project.clientName}
+                        {project.clientName || project.title}
                       </h3>
                       {/* Result - highlighted with icon */}
                       <div className="flex items-center gap-2 mb-4">
@@ -130,18 +130,20 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                       </div>
 
                       {/* CTA - reveals on hover */}
-                      <Link 
-                        href={`/case-study/${project.slug}`}
-                        className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-primary transition-colors duration-300"
-                      >
-                        <span className="relative">
-                          View Case Study
-                          <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
-                        </span>
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                          <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-                        </div>
-                      </Link>
+                      {project.slug && (
+                        <Link
+                          href={`/case-study/${project.slug}`}
+                          className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-primary transition-colors duration-300"
+                        >
+                          <span className="relative">
+                            View Case Study
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
+                          </span>
+                          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
+                          </div>
+                        </Link>
+                      )}
                     </div>
                   </div>
 
