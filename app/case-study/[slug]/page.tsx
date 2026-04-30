@@ -1,15 +1,33 @@
 import { client } from "@/sanity/lib/client";
 
-export default async function CaseStudyPage({ params }: any) {
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  // ✅ Safety check (prevents undefined crash)
+  if (!params?.slug) {
+    return <div className="text-white p-20">Invalid URL</div>;
+  }
+
   const query = `
-    *[_type == "caseStudy" && slug.current == $slug][0]
+    *[_type == "caseStudy" && slug.current == $slug][0]{
+      title,
+      clientName,
+      industry,
+      problem,
+      system,
+      result
+    }
   `;
 
   const data = await client.fetch(query, {
-    slug: params.slug,
+    slug: params.slug, // ✅ GUARANTEED VALUE
   });
 
-  if (!data) return <div className="text-white p-20">Not found</div>;
+  if (!data) {
+    return <div className="text-white p-20">Not found</div>;
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-20 text-white">
