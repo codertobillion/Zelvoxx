@@ -341,3 +341,18 @@ export const whyZelvoxQuery = groq`
     whatsappCtaText
   }
 `;
+
+// ==================== TEAM PAGE QUERIES ====================
+
+export const teamMembersQuery = groq`
+  *[_type == "teamMember"] | order(isFounder desc, order asc){
+    _id,
+    name,
+    role,
+    image,
+    isFounder,
+    shortBio,
+    order,
+    socialLinks
+  }
+`;

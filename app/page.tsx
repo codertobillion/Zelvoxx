@@ -10,7 +10,8 @@ import CaseStudies from "@/src/components/sections/CaseStudies";
 import Testimonials from "@/src/components/sections/Testimonials";
 import Pricing from "@/src/components/sections/Pricing";
 import Process from "@/src/components/sections/Process";
-import WhyZelvox from "@/src/components/sections/WhyZelvox";
+import HomeWhyZelvox from "@/src/components/sections/HomeWhyZelvox";
+import HomeTeam from "@/src/components/sections/HomeTeam";
 import CTA from "@/src/components/sections/CTA";
 import Footer from "@/src/components/layout/Footer";
 
@@ -21,6 +22,7 @@ import {
   servicesQuery,
   caseStudiesQuery,
   testimonialsQuery,
+  teamMembersQuery,
 } from "@/sanity/lib/queries";
 
 export const revalidate = 60;
@@ -32,12 +34,14 @@ export default async function Home() {
     servicesData,
     caseStudiesData,
     testimonialsData,
+    teamMembersData,
   ] = await Promise.all([
     client.fetch(heroQuery).catch(() => null),
     client.fetch(statsQuery).catch(() => []),
     client.fetch(servicesQuery).catch(() => []),
     client.fetch(caseStudiesQuery).catch(() => []),
     client.fetch(testimonialsQuery).catch(() => []),
+    client.fetch(teamMembersQuery).catch(() => []),
   ]);
 
   return (
@@ -58,7 +62,8 @@ export default async function Home() {
       <Testimonials data={testimonialsData} />
       <Pricing />
       <Process />
-      <WhyZelvox />
+      <HomeWhyZelvox />
+      <HomeTeam members={teamMembersData} />
       <CTA />
       <Footer />
 
