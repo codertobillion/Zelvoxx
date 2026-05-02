@@ -159,9 +159,9 @@ export const pricingQuery = groq`
 
 // ==================== DYNAMIC PAGE QUERIES ====================
 
-// Get single case study by slug
+// Get single case study by slug OR _id (fallback)
 export const caseStudyBySlugQuery = groq`
-  *[_type == "caseStudy" && slug.current == $slug][0]{
+  *[_type == "caseStudy" && (slug.current == $slug || _id == $slug)][0]{
     _id,
     title,
     "slug": slug.current,
@@ -190,9 +190,9 @@ export const caseStudyBySlugQuery = groq`
   }
 `;
 
-// Get single testimonial by slug
+// Get single testimonial by slug OR _id
 export const testimonialBySlugQuery = groq`
-  *[_type == "testimonial" && slug.current == $slug][0]{
+  *[_type == "testimonial" && (slug.current == $slug || _id == $slug)][0]{
     _id,
     name,
     "slug": slug.current,
@@ -224,9 +224,9 @@ export const testimonialBySlugQuery = groq`
   }
 `;
 
-// Get single service by slug
+// Get single service by slug OR _id
 export const serviceBySlugQuery = groq`
-  *[_type == "service" && slug.current == $slug][0]{
+  *[_type == "service" && (slug.current == $slug || _id == $slug)][0]{
     _id,
     title,
     "slug": slug.current,
