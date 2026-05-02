@@ -319,3 +319,25 @@ export const relatedServicesQuery = groq`
     icon
   }
 `;
+
+// ==================== WHY ZELVOX PAGE QUERY ====================
+
+export const whyZelvoxQuery = groq`
+  *[_type == "whyZelvox"][0]{
+    heroTitle,
+    heroSubtitle,
+    ctaText,
+    ctaLink,
+    problemText,
+    differenceTitle,
+    differencePoints,
+    processSteps,
+    resultsText,
+    founderText,
+    audienceText,
+    finalCtaTitle,
+    finalCtaSubtitle,
+    whatsappNumber,
+    whatsappCtaText
+  }
+`;

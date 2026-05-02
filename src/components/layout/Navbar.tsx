@@ -25,6 +25,7 @@ export default function Navbar() {
           <Link href="/portfolio" className="hover:text-primary transition-colors">OUR WORK</Link>
           <Link href="/case-studies" className="hover:text-primary transition-colors">CASE STUDIES</Link>
           <Link href="/pricing" className="hover:text-primary transition-colors">PRICING</Link>
+          <Link href="/why-zelvox" className="hover:text-primary transition-colors">WHY ZELVOX</Link>
           <Link href="/testimonials" className="hover:text-primary transition-colors">REVIEWS</Link>
         </div>
         
@@ -49,7 +50,7 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             id="mobile-menu-overlay"
             role="dialog"
             aria-modal="true"
@@ -62,6 +63,7 @@ export default function Navbar() {
             <Link href="/portfolio" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Work</Link>
             <Link href="/case-studies" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Case Studies</Link>
             <Link href="/pricing" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Pricing</Link>
+            <Link href="/why-zelvox" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Why Zelvox</Link>
             <Link href="/testimonials" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Reviews</Link>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="mt-8 bg-primary hover:bg-primary/90 text-white px-12 py-5 rounded-full font-bold text-xl inline-block transition-all active:scale-95 shadow-[0_0_30px_rgba(123,97,255,0.4)] tracking-wide">
               Book a Call
