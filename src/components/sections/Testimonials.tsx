@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
@@ -88,54 +89,59 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
           {/* Right Column: Cards Slider - Enhanced */}
           <div className="flex overflow-x-auto gap-8 pb-12 pt-4 snap-x snap-mandatory scrollbar-hide relative z-10">
             {displayData.map((test, idx) => (
-              <motion.div
+              <Link
                 key={idx}
-                initial={{ opacity: 0, x: 60, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="snap-center shrink-0 w-[85vw] sm:w-[440px] min-h-[400px] glass-premium premium-border p-10 rounded-[2.5rem] relative group bg-gradient-to-b from-white/[0.04] to-transparent flex flex-col transition-all duration-500"
-                style={{
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)",
-                }}
+                href={test.slug ? `/testimonial/${test.slug}` : "#"}
+                className="snap-center shrink-0"
               >
-                {/* Card glow effect on hover */}
                 <motion.div
-                  className="absolute -inset-[1px] rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  initial={{ opacity: 0, x: 60, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="w-[85vw] sm:w-[440px] min-h-[400px] glass-premium premium-border p-10 rounded-[2.5rem] relative group bg-gradient-to-b from-white/[0.04] to-transparent flex flex-col transition-all duration-500"
                   style={{
-                    background: "linear-gradient(135deg, rgba(123,97,255,0.2), rgba(45,156,219,0.1))",
-                    filter: "blur(20px)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)",
                   }}
-                />
-                
-                {/* Border glow on hover */}
-                <div className="absolute inset-0 rounded-[2.5rem] border border-white/10 group-hover:border-primary/40 transition-colors duration-500 pointer-events-none" />
-                
-                {/* Quote icon - larger and more prominent */}
-                <div className="absolute top-8 right-8 opacity-15 group-hover:opacity-40 group-hover:scale-110 transition-all duration-500">
-                  <Quote className="w-20 h-20 text-primary drop-shadow-[0_0_30px_rgba(123,97,255,0.6)]" />
-                </div>
-                
-                {/* Quote text - larger and more readable */}
-                <p 
-                  className="text-white/75 font-body text-xl leading-relaxed-plus mb-12 relative z-10 flex-grow"
-                  dangerouslySetInnerHTML={{ __html: `"${highlightText(test.content)}"` }}
-                />
+                >
+                  {/* Card glow effect on hover */}
+                  <motion.div
+                    className="absolute -inset-[1px] rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(123,97,255,0.2), rgba(45,156,219,0.1))",
+                      filter: "blur(20px)",
+                    }}
+                  />
+                  
+                  {/* Border glow on hover */}
+                  <div className="absolute inset-0 rounded-[2.5rem] border border-white/10 group-hover:border-primary/40 transition-colors duration-500 pointer-events-none" />
+                  
+                  {/* Quote icon - larger and more prominent */}
+                  <div className="absolute top-8 right-8 opacity-15 group-hover:opacity-40 group-hover:scale-110 transition-all duration-500">
+                    <Quote className="w-20 h-20 text-primary drop-shadow-[0_0_30px_rgba(123,97,255,0.6)]" />
+                  </div>
+                  
+                  {/* Quote text - larger and more readable */}
+                  <p 
+                    className="text-white/75 font-body text-xl leading-relaxed-plus mb-12 relative z-10 flex-grow"
+                    dangerouslySetInnerHTML={{ __html: `"${highlightText(test.content || test.excerpt || '')}"` }}
+                  />
 
-                {/* Client info - enhanced spacing */}
-                <div className="flex items-center gap-5 relative z-10 mt-auto pt-4 border-t border-white/5">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary via-primary to-accent p-[2px] shadow-[0_0_25px_rgba(123,97,255,0.4)] group-hover:shadow-[0_0_35px_rgba(123,97,255,0.6)] transition-shadow duration-500 shrink-0">
-                    <div className="w-full h-full rounded-full bg-[#111116] border-[2px] border-[#0B0B0B] flex items-center justify-center text-white font-bold font-heading text-base">
-                      {test.name.charAt(0)}
+                  {/* Client info - enhanced spacing */}
+                  <div className="flex items-center gap-5 relative z-10 mt-auto pt-4 border-t border-white/5">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary via-primary to-accent p-[2px] shadow-[0_0_25px_rgba(123,97,255,0.4)] group-hover:shadow-[0_0_35px_rgba(123,97,255,0.6)] transition-shadow duration-500 shrink-0">
+                      <div className="w-full h-full rounded-full bg-[#111116] border-[2px] border-[#0B0B0B] flex items-center justify-center text-white font-bold font-heading text-base">
+                        {test.name.charAt(0)}
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-white font-bold font-heading text-base tracking-wide">{test.name}</h4>
+                      <p className="text-primary text-sm font-semibold tracking-wider">{test.role}{test.company ? ` at ${test.company}` : ''}</p>
                     </div>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="text-white font-bold font-heading text-base tracking-wide">{test.name}</h4>
-                    <p className="text-primary text-sm font-semibold tracking-wider">{test.role}</p>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 

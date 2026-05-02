@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { services } from "@/src/constants/data";
@@ -11,7 +12,8 @@ export default function Services({ data }: { data?: ServiceType[] }) {
     const IconComponent = LucideIcons[d.icon] || LucideIcons.Code2;
     return {
       title: d.title,
-      desc: d.description,
+      desc: d.shortDescription || d.description,
+      slug: d.slug,
       icon: <IconComponent className="w-6 h-6 relative z-10" />
     }
   }) : services;
@@ -63,34 +65,39 @@ export default function Services({ data }: { data?: ServiceType[] }) {
           {/* Right Column: Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {displayData.map((service, idx) => (
-              <motion.div
+              <Link
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5, scale: 1.01 }}
-                className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent"
+                href={service.slug ? `/service/${service.slug}` : "#"}
+                className="block"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-                
-                <div className="relative w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500 z-10 border border-white/5 group-hover:border-primary/30">
-                  {/* Glowing icon background */}
-                  <div className="absolute inset-0 bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
-                  {service.icon}
-                </div>
-                
-                <h3 className="text-xl font-bold font-heading text-white mb-3 tracking-wide relative z-10">
-                  {service.title}
-                </h3>
-                
-                <p className="text-white/60 leading-relaxed font-body text-sm relative z-10">
-                  {service.desc}
-                </p>
-                
-                {/* Decorative line */}
-                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-700 z-10 opacity-70" />
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent h-full"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  
+                  <div className="relative w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500 z-10 border border-white/5 group-hover:border-primary/30">
+                    {/* Glowing icon background */}
+                    <div className="absolute inset-0 bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                    {service.icon}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold font-heading text-white mb-3 tracking-wide relative z-10">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-white/60 leading-relaxed font-body text-sm relative z-10">
+                    {service.desc}
+                  </p>
+                  
+                  {/* Decorative line */}
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-700 z-10 opacity-70" />
+                </motion.div>
+              </Link>
             ))}
           </div>
 

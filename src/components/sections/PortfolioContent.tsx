@@ -39,65 +39,80 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
             {data?.map((project, idx) => {
-              const imageUrl = urlForImage(project.image);
+              const imageUrl = urlForImage(project.thumbnail || project.image);
+              const displayName = project.clientName || project.title || "Project";
+              const hasContent = project.niche || project.result || project.excerpt;
 
               return (
-                <motion.div
+                <Link
                   key={idx}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="group relative rounded-2xl overflow-hidden bg-[#0f0f14] border border-white/10 hover:border-primary/40 transition-all duration-300"
+                  href={project.slug ? `/case-study/${project.slug}` : "#"}
+                  className="group block"
                 >
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    whileHover={{ y: -5, scale: 1.01 }}
+                    className="relative rounded-2xl overflow-hidden bg-[#0f0f14] border border-white/10 hover:border-primary/40 transition-all duration-300 h-full"
+                  >
 
-                  {/* IMAGE */}
-                  {imageUrl ? (
-                    <div className="relative h-[240px]">
-                      <Image
-                        src={imageUrl.url()}
-                        alt={project.clientName || "Project"}
-                        fill
-                        sizes="100vw"
-                        className="object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    </div>
-                  ) : (
-                    <div className="h-[240px] bg-gradient-to-br from-purple-500/20 to-blue-500/20" />
-                  )}
-
-                  {/* CONTENT */}
-                  <div className="p-6 space-y-4">
-
-                    {/* TAG */}
-                    <span className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/70">
-                      {project.niche || "Case Study"}
-                    </span>
-
-                    {/* TITLE */}
-                    <h3 className="text-xl font-bold text-white">
-                      {project.clientName || project.title}
-                    </h3>
-
-                    {/* RESULT */}
-                    <div className="flex items-center gap-2 text-white/90">
-                      <TrendingUp className="w-4 h-4 text-primary" />
-                      <span>{project.result}</span>
-                    </div>
-
-                    {/* CTA (ALWAYS VISIBLE NOW) */}
-                    {project.slug && (
-                      <Link
-                        href={`/case-study/${project.slug}`}
-                        className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline"
-                      >
-                        View Case Study
-                        <ArrowUpRight className="w-4 h-4" />
-                      </Link>
+                    {/* IMAGE */}
+                    {imageUrl ? (
+                      <div className="relative h-[240px]">
+                        <Image
+                          src={imageUrl.url()}
+                          alt={displayName}
+                          fill
+                          sizes="100vw"
+                          className="object-cover group-hover:scale-105 transition duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f14] via-transparent to-transparent" />
+                      </div>
+                    ) : (
+                      <div className="h-[240px] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <span className="text-4xl font-black text-white/20">{displayName.charAt(0)}</span>
+                      </div>
                     )}
 
-                  </div>
+                    {/* CONTENT */}
+                    <div className="p-6 space-y-4">
 
-                </motion.div>
+                      {/* TAG */}
+                      {project.niche && (
+                        <span className="inline-block text-xs px-3 py-1 bg-white/10 rounded-full text-white/70">
+                          {project.niche}
+                        </span>
+                      )}
+
+                      {/* TITLE */}
+                      <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                        {displayName}
+                      </h3>
+
+                      {/* EXCERPT */}
+                      {project.excerpt && (
+                        <p className="text-white/60 text-sm line-clamp-2">{project.excerpt}</p>
+                      )}
+
+                      {/* RESULT */}
+                      {project.result && (
+                        <div className="flex items-center gap-2 text-white/90">
+                          <TrendingUp className="w-4 h-4 text-primary" />
+                          <span className="text-sm">{project.result}</span>
+                        </div>
+                      )}
+
+                      {/* CTA */}
+                      <div className="flex items-center gap-2 mt-2 text-sm font-semibold text-primary">
+                        View Case Study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </div>
+
+                    </div>
+
+                  </motion.div>
+                </Link>
               );
             })}
 

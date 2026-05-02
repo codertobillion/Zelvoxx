@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, AlertCircle, Lightbulb, TrendingUp } from "lucide-react";
 
@@ -45,47 +46,62 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
           {/* Right Column: Case Studies */}
           <div className="space-y-8">
             {displayData.map((study, idx) => (
-              <motion.div 
+              <Link
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="glass-premium premium-border soft-glow rounded-2xl p-8 relative overflow-hidden group hover:border-primary/30 transition-all duration-500 bg-gradient-to-b from-white/[0.04] to-transparent hover:-translate-y-1"
+                href={study.slug ? `/case-study/${study.slug}` : "#"}
+                className="block"
               >
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                
-                <div className="border-b border-white/10 pb-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
-                  <div>
-                    <p className="text-white/80 font-heading text-lg">
-                      How we helped <strong className="text-white font-black">{study.client}</strong> scale.
-                    </p>
-                  </div>
-                  <button className="flex items-center gap-2 text-white/50 hover:text-white text-sm font-bold transition-colors group/btn">
-                    View Case Study <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 text-primary transition-transform" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-                  {/* Problem */}
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-red-400">Problem</h4>
-                    <p className="text-white/60 font-body leading-relaxed text-sm">{study.problem}</p>
-                  </div>
-
-                  {/* Solution */}
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-accent">Solution</h4>
-                    <p className="text-white/60 font-body leading-relaxed text-sm">{study.solution}</p>
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: idx * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className="glass-premium premium-border soft-glow rounded-2xl p-8 relative overflow-hidden group hover:border-primary/30 transition-all duration-500 bg-gradient-to-b from-white/[0.04] to-transparent"
+                >
+                  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                  
+                  <div className="border-b border-white/10 pb-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+                    <div>
+                      <p className="text-white/80 font-heading text-lg">
+                        How we helped <strong className="text-white font-black">{study.clientName || study.client || "Client"}</strong> scale.
+                      </p>
+                      {study.industry && (
+                        <span className="text-xs text-white/40 mt-1 block">{study.industry}</span>
+                      )}
+                    </div>
+                    <span className="flex items-center gap-2 text-white/50 group-hover:text-primary text-sm font-bold transition-colors shrink-0">
+                      View Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
 
-                  {/* Result */}
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-green-400">Result</h4>
-                    <p className="text-white font-medium font-body leading-relaxed text-sm">{study.result}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    {/* Problem */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-red-400">Problem</h4>
+                      <p className="text-white/60 font-body leading-relaxed text-sm line-clamp-3">
+                        {study.problem || "Identified growth bottlenecks and conversion challenges."}
+                      </p>
+                    </div>
+
+                    {/* Solution */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-accent">Solution</h4>
+                      <p className="text-white/60 font-body leading-relaxed text-sm line-clamp-3">
+                        {study.solution || "Implemented strategic systems and optimization."}
+                      </p>
+                    </div>
+
+                    {/* Result */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs font-bold font-heading uppercase tracking-wider text-green-400">Result</h4>
+                      <p className="text-white font-medium font-body leading-relaxed text-sm line-clamp-3">
+                        {study.result || "Significant growth and improved performance metrics."}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
