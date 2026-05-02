@@ -107,14 +107,14 @@ export const testimonials: TestimonialType[] = [
   {
     name: "David C.",
     role: "Local Business Owner",
-    content: "If you want a pretty site, go somewhere else. If you want a scalable infrastructure that predictably generates revenue and scales on autopilot, hire Zelvox.",
+    content: "If you want a pretty site, go somewhere else. If you want a scalable infrastructure that predictably generates revenue and scales on autopilot, hire Zelvoxx.",
   }
 ];
 
 export const socialLinks = [
-  { platform: "Instagram", url: "https://instagram.com/zelvox" },
-  { platform: "Twitter", url: "https://twitter.com/zelvox" },
-  { platform: "LinkedIn", url: "https://linkedin.com/company/zelvox" },
+  { platform: "Instagram", url: "https://instagram.com/Zelvoxx" },
+  { platform: "Twitter", url: "https://twitter.com/Zelvoxx" },
+  { platform: "LinkedIn", url: "https://linkedin.com/company/Zelvoxx" },
 ];
 
 export const legalLinks = [
@@ -125,7 +125,7 @@ export const legalLinks = [
 export const footerNavLinks = [
   { label: "Our Work", url: "/portfolio" },
   { label: "Case Studies", url: "/case-studies" },
-  { label: "Why Zelvox", url: "/why-zelvox" },
+  { label: "Why Zelvoxx", url: "/why-Zelvoxx" },
   { label: "Our Team", url: "/team" },
   { label: "Pricing", url: "/pricing" },
   { label: "Reviews", url: "/testimonials" },

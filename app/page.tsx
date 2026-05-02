@@ -10,7 +10,7 @@ import CaseStudies from "@/src/components/sections/CaseStudies";
 import Testimonials from "@/src/components/sections/Testimonials";
 import Pricing from "@/src/components/sections/Pricing";
 import Process from "@/src/components/sections/Process";
-import HomeWhyZelvox from "@/src/components/sections/HomeWhyZelvox";
+import HomeWhyZelvoxx from "@/src/components/sections/HomeWhyZelvoxx";
 import HomeTeam from "@/src/components/sections/HomeTeam";
 import CTA from "@/src/components/sections/CTA";
 import Footer from "@/src/components/layout/Footer";
@@ -62,7 +62,7 @@ export default async function Home() {
       <Testimonials data={testimonialsData} />
       <Pricing />
       <Process />
-      <HomeWhyZelvox />
+      <HomeWhyZelvoxx />
       <HomeTeam members={teamMembersData} />
       <CTA />
       <Footer />

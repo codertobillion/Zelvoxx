@@ -207,7 +207,7 @@ export default function TeamContent({ members }: Props) {
                 The Founders
               </h2>
               <p className="text-white/50 text-lg max-w-2xl mx-auto">
-                Visionaries who built ZELVOX from the ground up. Systems thinkers. Growth architects.
+                Visionaries who built Zelvoxx from the ground up. Systems thinkers. Growth architects.
               </p>
             </motion.div>
 

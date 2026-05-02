@@ -4,7 +4,7 @@ import { schema } from './sanity/schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Zelvox Studio',
+  title: 'Zelvoxx Studio',
 
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'a0nhkjjj',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',

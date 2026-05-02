@@ -6,8 +6,8 @@ import Footer from "@/src/components/layout/Footer";
 import TestimonialsContentClient from "./components/TestimonialsContentClient";
 
 export const metadata: Metadata = {
-  title: "Client Reviews | ZELVOX",
-  description: "Read what our clients say about working with ZELVOX and the results we've delivered.",
+  title: "Client Reviews | Zelvoxx",
+  description: "Read what our clients say about working with Zelvoxx and the results we've delivered.",
 };
 
 export const revalidate = 60;

@@ -1,15 +1,15 @@
 import { defineType, defineField } from 'sanity'
 
-export const whyZelvoxType = defineType({
-  name: 'whyZelvox',
-  title: 'Why Zelvox Page',
+export const whyZelvoxxType = defineType({
+  name: 'whyZelvoxx',
+  title: 'Why Zelvoxx Page',
   type: 'document',
   fields: [
     defineField({
       name: 'heroTitle',
       title: 'Hero Title',
       type: 'string',
-      description: 'Main headline for the Why Zelvox page',
+      description: 'Main headline for the Why Zelvoxx page',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -31,7 +31,7 @@ export const whyZelvoxType = defineType({
       title: 'Hero CTA Link',
       type: 'string',
       description: 'URL for the hero CTA button',
-      initialValue: 'https://calendly.com/zelvox',
+      initialValue: 'https://calendly.com/Zelvoxx',
     }),
     defineField({
       name: 'problemText',
@@ -44,14 +44,14 @@ export const whyZelvoxType = defineType({
       name: 'differenceTitle',
       title: 'Difference Section Title',
       type: 'string',
-      description: 'Title for what makes Zelvox different',
+      description: 'Title for what makes Zelvoxx different',
     }),
     defineField({
       name: 'differencePoints',
       title: 'Difference Points',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Bullet points highlighting the Zelvox difference',
+      description: 'Bullet points highlighting the Zelvoxx difference',
     }),
     defineField({
       name: 'processSteps',
@@ -121,7 +121,7 @@ export const whyZelvoxType = defineType({
     },
     prepare({ title }) {
       return {
-        title: title || 'Why Zelvox Page Content',
+        title: title || 'Why Zelvoxx Page Content',
         subtitle: 'Single document - only one should exist',
       }
     },

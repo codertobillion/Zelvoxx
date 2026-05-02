@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!caseStudy) {
     return {
-      title: "Case Study Not Found | ZELVOX",
+      title: "Case Study Not Found | Zelvoxx",
     };
   }
 
   return {
-    title: `${caseStudy.title} | Case Study | ZELVOX`,
+    title: `${caseStudy.title} | Case Study | Zelvoxx`,
     description: caseStudy.excerpt,
   };
 }
@@ -245,7 +245,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
                 {/* CTA Button */}
                 <Link
-                  href="https://calendly.com/zelvox"
+                  href="https://calendly.com/Zelvoxx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 block w-full text-center bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-semibold transition-all hover:scale-105"

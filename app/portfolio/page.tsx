@@ -6,7 +6,7 @@ import Footer from "@/src/components/layout/Footer";
 import PortfolioContentClient from "./components/PortfolioContentClient";
 
 export const metadata: Metadata = {
-  title: "Our Work | ZELVOX",
+  title: "Our Work | Zelvoxx",
   description: "View our portfolio of premium digital growth systems that generate predictable revenue.",
 };
 

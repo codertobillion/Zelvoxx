@@ -18,13 +18,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
         <Link href="/" className="text-2xl md:text-3xl font-heading font-black text-white tracking-widest flex items-center gap-2 relative z-[60]">
-          ZELVOX<span className="text-primary -ml-2">.</span>
+          Zelvoxx<span className="text-primary -ml-2">.</span>
         </Link>
         
         <div className="hidden md:flex items-center gap-10 text-sm font-semibold tracking-wide">
           <Link href="/portfolio" className="hover:text-primary transition-colors">OUR WORK</Link>
           <Link href="/case-studies" className="hover:text-primary transition-colors">CASE STUDIES</Link>
-          <Link href="/why-zelvox" className="hover:text-primary transition-colors">WHY ZELVOX</Link>
+          <Link href="/why-Zelvoxx" className="hover:text-primary transition-colors">WHY Zelvoxx</Link>
           <Link href="/team" className="hover:text-primary transition-colors">OUR TEAM</Link>
           <Link href="/pricing" className="hover:text-primary transition-colors">PRICING</Link>
           <Link href="/testimonials" className="hover:text-primary transition-colors">REVIEWS</Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
           >
             <Link href="/portfolio" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Work</Link>
             <Link href="/case-studies" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Case Studies</Link>
-            <Link href="/why-zelvox" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Why Zelvox</Link>
+            <Link href="/why-Zelvoxx" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Why Zelvoxx</Link>
             <Link href="/team" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Team</Link>
             <Link href="/pricing" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Pricing</Link>
             <Link href="/testimonials" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Reviews</Link>

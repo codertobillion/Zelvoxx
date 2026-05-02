@@ -75,7 +75,7 @@ const additionalFeatures = [
   { icon: Trophy, text: "Proven Track Record" },
 ];
 
-export default function HomeWhyZelvox() {
+export default function HomeWhyZelvoxx() {
   return (
     <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Effects */}
@@ -142,7 +142,7 @@ export default function HomeWhyZelvox() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient">
-                ZELVOX
+                Zelvoxx
               </span>{" "}
               Advantage
             </h2>
@@ -225,7 +225,7 @@ export default function HomeWhyZelvox() {
           {/* CTA */}
           <motion.div variants={fadeInUp} className="text-center">
             <Link
-              href="/why-zelvox"
+              href="/why-Zelvoxx"
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(123,97,255,0.4)]"
             >
               <span>Discover More Reasons</span>

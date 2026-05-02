@@ -6,7 +6,7 @@ import Footer from "@/src/components/layout/Footer";
 import CaseStudiesContentClient from "./components/CaseStudiesContentClient";
 
 export const metadata: Metadata = {
-  title: "Case Studies | ZELVOX",
+  title: "Case Studies | Zelvoxx",
   description: "Deep-dive case studies showcasing how we build digital growth systems that generate predictable revenue.",
 };
 

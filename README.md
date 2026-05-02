@@ -36,6 +36,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 =======
-# Zelvoxx
-Zelvox is a modern digital growth systems agency website built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS.  This project focuses on creating a high-converting, scalable, and visually premium experience using a dark UI, smooth animations, and modular architecture.  Designed to showcase services, case studies, and growth systems
+# Zelvoxxx
+Zelvoxx is a modern digital growth systems agency website built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS.  This project focuses on creating a high-converting, scalable, and visually premium experience using a dark UI, smooth animations, and modular architecture.  Designed to showcase services, case studies, and growth systems
 >>>>>>> 13184cebbb960d23ab0e77183e484f61dc3fdd47

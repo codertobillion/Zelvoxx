@@ -39,7 +39,7 @@ export default defineType({
       name: "ctaLink",
       title: "Primary CTA Link",
       type: "string",
-      initialValue: "https://calendly.com/zelvox",
+      initialValue: "https://calendly.com/Zelvoxx",
     }),
     defineField({
       name: "secondaryCtaText",

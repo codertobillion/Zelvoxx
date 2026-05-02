@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!testimonial) {
     return {
-      title: "Testimonial Not Found | ZELVOX",
+      title: "Testimonial Not Found | Zelvoxx",
     };
   }
 
   return {
-    title: `${testimonial.name} - Client Testimonial | ZELVOX`,
+    title: `${testimonial.name} - Client Testimonial | Zelvoxx`,
     description: testimonial.excerpt || testimonial.content,
   };
 }

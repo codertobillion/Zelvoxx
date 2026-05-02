@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zelvox.com"),
-  title: "ZELVOX - Premium Digital Growth Agency",
+  metadataBase: new URL("https://Zelvoxx.com"),
+  title: "Zelvoxx - Premium Digital Growth Agency",
   description:
     "We architect premium digital growth systems that generate predictable revenue and dominate industries.",
 };

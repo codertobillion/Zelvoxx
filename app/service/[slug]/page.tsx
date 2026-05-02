@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!service) {
     return {
-      title: "Service Not Found | ZELVOX",
+      title: "Service Not Found | Zelvoxx",
     };
   }
 
   return {
-    title: `${service.title} | Service | ZELVOX`,
+    title: `${service.title} | Service | Zelvoxx`,
     description: service.shortDescription,
   };
 }
@@ -93,7 +93,7 @@ export default async function ServicePage({ params }: Props) {
 
               {/* CTA */}
               <Link
-                href="https://calendly.com/zelvox"
+                href="https://calendly.com/Zelvoxx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"

@@ -10,7 +10,7 @@ interface ProcessStep {
   description: string;
 }
 
-interface WhyZelvoxData {
+interface WhyZelvoxxData {
   heroTitle?: string;
   heroSubtitle?: string;
   ctaText?: string;
@@ -29,7 +29,7 @@ interface WhyZelvoxData {
 }
 
 interface Props {
-  data: WhyZelvoxData | null;
+  data: WhyZelvoxxData | null;
 }
 
 const fadeInUp: Variants = {
@@ -46,13 +46,13 @@ const staggerContainer: Variants = {
 };
 
 // Default content for fallback
-const defaultData: WhyZelvoxData = {
+const defaultData: WhyZelvoxxData = {
   heroTitle: "We Don't Run Ads. We Build Growth Systems.",
   heroSubtitle: "Most agencies sell you campaigns. We engineer ecosystems that compound revenue month after month. If you're looking for quick fixes, we're not for you.",
   ctaText: "Book a Strategy Call",
-  ctaLink: "https://calendly.com/zelvox",
+  ctaLink: "https://calendly.com/Zelvoxx",
   problemText: "Most businesses are stuck in a cycle of dependency. They hire agencies that run ads, get some results, then the campaigns fatigue and performance drops. They switch agencies. Repeat. This is the 'campaign trap'—short-term tactics without long-term infrastructure.",
-  differenceTitle: "What Makes Zelvox Different",
+  differenceTitle: "What Makes Zelvoxx Different",
   differencePoints: [
     "System-first thinking: We architect complete growth ecosystems, not isolated campaigns",
     "Revenue obsession: We optimize for profit, not vanity metrics like impressions or clicks",
@@ -74,7 +74,7 @@ const defaultData: WhyZelvoxData = {
   whatsappCtaText: "Chat on WhatsApp",
 };
 
-export default function WhyZelvoxContent({ data }: Props) {
+export default function WhyZelvoxxContent({ data }: Props) {
   const content = { ...defaultData, ...data };
 
   return (

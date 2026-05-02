@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <Link href="/" className="text-3xl font-heading font-black text-white tracking-widest flex items-center gap-2 mb-6 inline-block">
-              ZELVOX<span className="text-primary -ml-2">.</span>
+              Zelvoxx<span className="text-primary -ml-2">.</span>
             </Link>
             <p className="text-white/50 font-body max-w-sm leading-relaxed">
               We build premium digital growth systems that generate predictable revenue and dominate industries.
@@ -50,8 +50,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@zelvox.com" className="hover:text-primary transition-colors text-sm">
-                  hello@zelvox.com
+                <a href="mailto:hello@Zelvoxx.com" className="hover:text-primary transition-colors text-sm">
+                  hello@Zelvoxx.com
                 </a>
               </li>
               <li className="pt-4 flex items-center gap-4">
@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between text-white/30 text-xs font-body uppercase tracking-wider">
-          <p>© {new Date().getFullYear()} ZELVOX. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Zelvoxx. All rights reserved.</p>
           <div className="flex items-center gap-6 mt-6 md:mt-0">
              <span>Built for Growth</span>
           </div>

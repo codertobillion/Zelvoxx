@@ -26,7 +26,7 @@ const reasons = [
   }
 ];
 
-export default function WhyZelvox() {
+export default function WhyZelvoxx() {
   return (
     <section className="bg-[#101018] relative overflow-hidden border-t border-white/5">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[150px] pointer-events-none z-0 rounded-full" />
@@ -47,7 +47,7 @@ export default function WhyZelvox() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-heading font-black text-white"
           >
-            The Zelvox <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Advantage.</span>
+            The Zelvoxx <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Advantage.</span>
           </motion.h2>
         </div>
 

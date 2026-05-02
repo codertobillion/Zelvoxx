@@ -65,7 +65,7 @@ export default function TestimonialsContentClient({ testimonialsData }: Testimon
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-                Don&apos;t just take our word for it. Here&apos;s what industry leaders say about working with ZELVOX.
+                Don&apos;t just take our word for it. Here&apos;s what industry leaders say about working with Zelvoxx.
               </p>
             </motion.div>
           </div>
@@ -147,7 +147,7 @@ export default function TestimonialsContentClient({ testimonialsData }: Testimon
               Ready to be our next success story?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              Join the growing list of businesses that have transformed their digital presence with ZELVOX.
+              Join the growing list of businesses that have transformed their digital presence with Zelvoxx.
             </p>
             <Link
               href="/"

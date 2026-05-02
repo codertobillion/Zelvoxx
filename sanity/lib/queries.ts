@@ -320,10 +320,10 @@ export const relatedServicesQuery = groq`
   }
 `;
 
-// ==================== WHY ZELVOX PAGE QUERY ====================
+// ==================== WHY Zelvoxx PAGE QUERY ====================
 
-export const whyZelvoxQuery = groq`
-  *[_type == "whyZelvox"][0]{
+export const whyZelvoxxQuery = groq`
+  *[_type == "whyZelvoxx"][0]{
     heroTitle,
     heroSubtitle,
     ctaText,

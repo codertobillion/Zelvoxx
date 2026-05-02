@@ -9,7 +9,7 @@ export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Our Team | The People Behind ZELVOX",
+    title: "Our Team | The People Behind Zelvoxx",
     description: "Meet the operators, founders, and specialists building growth systems for ambitious brands. Not just an agency—a team of executors.",
   };
 }

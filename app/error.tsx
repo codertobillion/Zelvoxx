@@ -12,7 +12,7 @@ export default function Error({
 }) {
   useEffect(() => {
     // We would link this to Sentry or Datadog in production
-    console.error("ZELVOX Fatal Error Boundary Caught:", error);
+    console.error("Zelvoxx Fatal Error Boundary Caught:", error);
   }, [error]);
 
   return (

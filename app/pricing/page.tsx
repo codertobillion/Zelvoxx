@@ -6,7 +6,7 @@ import Footer from "@/src/components/layout/Footer";
 import PricingContentClient from "./components/PricingContentClient";
 
 export const metadata: Metadata = {
-  title: "Pricing | ZELVOX",
+  title: "Pricing | Zelvoxx",
   description: "Transparent pricing for premium digital growth systems. Choose the plan that fits your business goals.",
 };
 
