@@ -30,6 +30,7 @@ export interface ProjectType {
 }
 
 export interface CaseStudyType {
+  _id?: string; // sanity document id
   client?: string; // local fallback
   clientName?: string; // sanity data
   title?: string;

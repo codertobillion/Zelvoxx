@@ -45,12 +45,17 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
 
           {/* Right Column: Case Studies */}
           <div className="space-y-8">
-            {displayData.map((study, idx) => (
-              <Link
-                key={idx}
-                href={study.slug ? `/case-study/${study.slug}` : "#"}
-                className="block"
-              >
+            {displayData.map((study, idx) => {
+              // Use slug if available, otherwise fallback to _id
+              const studySlug = study.slug || study._id;
+              const href = studySlug ? `/case-study/${studySlug}` : "#";
+
+              return (
+                <Link
+                  key={idx}
+                  href={href}
+                  className="block"
+                >
                 <motion.div 
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +107,8 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
                   </div>
                 </motion.div>
               </Link>
-            ))}
+              );
+            })}
           </div>
 
         </div>

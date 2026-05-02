@@ -42,11 +42,14 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
               const imageUrl = urlForImage(project.thumbnail || project.image);
               const displayName = project.clientName || project.title || "Project";
               const hasContent = project.niche || project.result || project.excerpt;
+              // Use slug if available, otherwise fallback to _id for testing
+              const projectSlug = project.slug || project._id;
+              const href = projectSlug ? `/case-study/${projectSlug}` : "#";
 
               return (
                 <Link
                   key={idx}
-                  href={project.slug ? `/case-study/${project.slug}` : "#"}
+                  href={href}
                   className="group block"
                 >
                   <motion.div
