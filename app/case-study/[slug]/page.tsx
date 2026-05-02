@@ -266,29 +266,47 @@ export default async function CaseStudyPage({ params }: Props) {
             <div className="grid md:grid-cols-3 gap-6">
               {relatedCaseStudies.map((study: any) => {
                 const thumbUrl = study.thumbnail ? urlForImage(study.thumbnail) : null;
+                // Fallback to _id if no slug
+                const studySlug = study.slug || study._id;
+                const href = studySlug ? `/case-study/${studySlug}` : "#";
+                const displayTitle = study.title || study.clientName || "Case Study";
+
                 return (
                   <Link
                     key={study._id}
-                    href={`/case-study/${study.slug}`}
+                    href={href}
                     className="group block bg-[#0f0f14] rounded-xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
                   >
-                    {thumbUrl && (
-                      <div className="relative h-48 overflow-hidden">
+                    {/* Image or Fallback */}
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
+                      {thumbUrl ? (
                         <Image
                           src={thumbUrl.url()}
-                          alt={study.title}
+                          alt={displayTitle}
                           fill
                           className="object-cover group-hover:scale-105 transition duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f14] to-transparent" />
-                      </div>
-                    )}
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-5xl font-black text-white/10">{displayTitle.charAt(0)}</span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f14] to-transparent" />
+                    </div>
+
                     <div className="p-6">
-                      <span className="text-xs text-primary font-semibold">{study.industry}</span>
+                      {study.industry && (
+                        <span className="text-xs text-primary font-semibold">{study.industry}</span>
+                      )}
                       <h3 className="text-lg font-bold text-white mt-2 group-hover:text-primary transition-colors">
-                        {study.title}
+                        {displayTitle}
                       </h3>
-                      <p className="text-white/50 text-sm mt-2 line-clamp-2">{study.excerpt}</p>
+                      {study.excerpt && (
+                        <p className="text-white/50 text-sm mt-2 line-clamp-2">{study.excerpt}</p>
+                      )}
+                      {study.result && (
+                        <p className="text-primary text-sm mt-3 font-semibold">{study.result}</p>
+                      )}
                     </div>
                   </Link>
                 );
