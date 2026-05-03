@@ -12,6 +12,7 @@ import Pricing from "@/src/components/sections/Pricing";
 import Process from "@/src/components/sections/Process";
 import HomeWhyZelvoxx from "@/src/components/sections/HomeWhyZelvoxx";
 import HomeTeam from "@/src/components/sections/HomeTeam";
+import HomeContact from "@/src/components/sections/HomeContact";
 import CTA from "@/src/components/sections/CTA";
 import Footer from "@/src/components/layout/Footer";
 
@@ -64,6 +65,7 @@ export default async function Home() {
       <Process />
       <HomeWhyZelvoxx />
       <HomeTeam members={teamMembersData} />
+      <HomeContact />
       <CTA />
       <Footer />
 

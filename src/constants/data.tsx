@@ -129,4 +129,5 @@ export const footerNavLinks = [
   { label: "Our Team", url: "/team" },
   { label: "Pricing", url: "/pricing" },
   { label: "Reviews", url: "/testimonials" },
+  { label: "Contact", url: "/contact" },
 ];

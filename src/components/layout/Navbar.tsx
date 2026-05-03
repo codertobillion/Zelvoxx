@@ -28,6 +28,7 @@ export default function Navbar() {
           <Link href="/team" className="hover:text-primary transition-colors">OUR TEAM</Link>
           <Link href="/pricing" className="hover:text-primary transition-colors">PRICING</Link>
           <Link href="/testimonials" className="hover:text-primary transition-colors">REVIEWS</Link>
+          <Link href="/contact" className="px-4 py-2 bg-primary/20 border border-primary/40 rounded-full text-primary hover:bg-primary hover:text-white transition-all">CONTACT</Link>
         </div>
         
         <div className="hidden md:block">
@@ -67,6 +68,7 @@ export default function Navbar() {
             <Link href="/team" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Team</Link>
             <Link href="/pricing" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Pricing</Link>
             <Link href="/testimonials" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Reviews</Link>
+            <Link href="/contact" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-primary hover:text-white transition-colors uppercase tracking-widest">Contact</Link>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="mt-8 bg-primary hover:bg-primary/90 text-white px-12 py-5 rounded-full font-bold text-xl inline-block transition-all active:scale-95 shadow-[0_0_30px_rgba(123,97,255,0.4)] tracking-wide">
               Book a Call
             </a>
