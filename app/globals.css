@@ -43,17 +43,14 @@
   }
 }
 
-/* Hide default cursor on desktop devices to support Custom Cursor */
-@media (hover: hover) and (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
-}
-
-
 @layer base {
+  * {
+    cursor: auto !important;
+  }
+
   body {
     @apply bg-background text-white antialiased font-body;
+    cursor: auto !important;
     background-image:
       radial-gradient(circle at 15% 20%, rgba(123, 97, 255, 0.14), transparent 35%),
       radial-gradient(circle at 85% 10%, rgba(45, 156, 219, 0.12), transparent 32%),

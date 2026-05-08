@@ -3,8 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, Check, Zap, Crown, Building2 } from "lucide-react";
+import { ArrowLeft, Check, Zap, Crown, Building2, Sparkles, Gift } from "lucide-react";
 import { CALENDLY_URL } from "@/src/constants/data";
+import DynamicBackground from "@/src/components/ui/DynamicBackground";
 
 interface PricingContentClientProps {
   plans: any[];
@@ -18,21 +19,41 @@ const planIcons: Record<string, React.ReactNode> = {
 
 export default function PricingContentClient({ plans }: PricingContentClientProps) {
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-primary/30">
-      {/* Global Noise Texture */}
-      <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }}></div>
+    <main className="min-h-screen bg-background text-white selection:bg-primary/30 relative">
+      {/* Dynamic Background */}
+      <DynamicBackground variant="orange" intensity="medium" />
 
       {/* Page Content */}
-      <div className="pt-24">
+      <div className="relative z-10 pt-24">
         {/* Page Header */}
-        <section className="py-20 md:py-32 bg-background relative overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-          <motion.div
-            animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.2, 1] }}
-            transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-            className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 blur-[200px] rounded-full pointer-events-none"
-          />
+        <section className="py-20 md:py-32 relative overflow-hidden">
+          {/* Floating price tags animation */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute flex items-center gap-1 px-3 py-1 rounded-full bg-white/5 border border-white/10"
+                style={{
+                  right: `${5 + i * 15}%`,
+                  top: `${20 + (i % 3) * 25}%`,
+                }}
+                animate={{
+                  opacity: [0.2, 0.5, 0.2],
+                  y: [0, -15, 0],
+                  rotate: [-5, 5, -5],
+                }}
+                transition={{
+                  duration: 4 + i * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.4,
+                }}
+              >
+                <Gift className="w-3 h-3 text-primary/60" />
+                <span className="text-xs text-white/40">Save {20 + i * 10}%</span>
+              </motion.div>
+            ))}
+          </div>
           
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <motion.div 
@@ -41,13 +62,19 @@ export default function PricingContentClient({ plans }: PricingContentClientProp
               transition={{ duration: 0.8 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <Link 
-                href="/" 
-                className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary transition-colors mb-8"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Link>
+                <Link 
+                  href="/" 
+                  className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary transition-colors mb-8 group"
+                >
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  Back to Home
+                </Link>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -55,19 +82,30 @@ export default function PricingContentClient({ plans }: PricingContentClientProp
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
               >
-                <Zap className="w-4 h-4 text-primary" />
+                <Sparkles className="w-4 h-4 text-primary" />
                 <span className="text-xs font-bold tracking-wider text-primary uppercase">Pricing Plans</span>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-6">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-6"
+              >
                 Simple,{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent bg-300% animate-gradient">
                   transparent pricing.
                 </span>
-              </h1>
-              <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+              >
                 No hidden fees. No surprises. Just premium digital growth systems that deliver results.
-              </p>
+              </motion.p>
             </motion.div>
           </div>
         </section>

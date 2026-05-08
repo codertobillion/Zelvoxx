@@ -123,6 +123,7 @@ export const legalLinks = [
 ];
 
 export const footerNavLinks = [
+  { label: "Services", url: "/#services" },
   { label: "Our Work", url: "/portfolio" },
   { label: "Case Studies", url: "/case-studies" },
   { label: "Why Zelvoxx", url: "/why-Zelvoxx" },

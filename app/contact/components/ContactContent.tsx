@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, type Variants, AnimatePresence } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { 
   ArrowRight, 
   Mail, 
   Phone, 
-  MapPin, 
   Clock, 
   Send, 
   CheckCircle, 
@@ -23,6 +22,7 @@ import {
 } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { CALENDLY_URL } from "@/src/constants/data";
+import DynamicBackground from "@/src/components/ui/DynamicBackground";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -228,20 +228,8 @@ export default function ContactContent() {
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-        <motion.div
-          className="absolute top-20 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px]"
-          animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-[10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-[130px]"
-          animate={{ x: [0, -40, 0], y: [0, -20, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-      </div>
+      {/* Dynamic Background */}
+      <DynamicBackground variant="mixed" intensity="high" />
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div

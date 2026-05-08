@@ -19,9 +19,13 @@ export default function Services({ data }: { data?: ServiceType[] }) {
   }) : services;
 
   return (
-    <section id="services" className="relative bg-background overflow-hidden border-t border-white/5">
+    <section id="services" className="relative bg-background overflow-hidden border-t border-white/5 py-20 scroll-mt-24">
+      {/* Section Header Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+      
       {/* Premium Background gradients */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] z-0 rounded-full pointer-events-none -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 blur-[150px] z-0 rounded-full pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">

@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, Quote, Star, MessageCircle } from "lucide-react";
+import { ArrowLeft, Quote, Star, MessageCircle, Heart, ThumbsUp } from "lucide-react";
 import { urlForImage } from "@/sanity/lib/image";
+import DynamicBackground from "@/src/components/ui/DynamicBackground";
 
 interface TestimonialsContentClientProps {
   testimonialsData: any[];
@@ -12,26 +13,44 @@ interface TestimonialsContentClientProps {
 
 export default function TestimonialsContentClient({ testimonialsData }: TestimonialsContentClientProps) {
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-primary/30">
-      {/* Global Noise Texture */}
-      <div className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }}></div>
+    <main className="min-h-screen bg-background text-white selection:bg-primary/30 relative">
+      {/* Dynamic Background */}
+      <DynamicBackground variant="green" intensity="medium" />
 
       {/* Page Content */}
-      <div className="pt-24">
+      <div className="relative z-10 pt-24">
         {/* Page Header */}
-        <section className="py-20 md:py-32 bg-background relative overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-          <motion.div
-            animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.2, 1] }}
-            transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-            className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full pointer-events-none"
-          />
-          <motion.div
-            animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.1, 1] }}
-            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", delay: 2 }}
-            className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-accent/10 blur-[120px] rounded-full pointer-events-none"
-          />
+        <section className="py-20 md:py-32 relative overflow-hidden">
+          {/* Floating hearts and likes animation */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute"
+                style={{
+                  right: `${5 + i * 12}%`,
+                  top: `${15 + (i % 4) * 20}%`,
+                }}
+                animate={{
+                  opacity: [0.2, 0.6, 0.2],
+                  y: [0, -30, 0],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: 3 + i * 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.3,
+                }}
+              >
+                {i % 2 === 0 ? (
+                  <Heart className="w-5 h-5 text-primary/40" />
+                ) : (
+                  <ThumbsUp className="w-5 h-5 text-accent/40" />
+                )}
+              </motion.div>
+            ))}
+          </div>
           
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <motion.div 
@@ -40,13 +59,19 @@ export default function TestimonialsContentClient({ testimonialsData }: Testimon
               transition={{ duration: 0.8 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <Link 
-                href="/" 
-                className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary transition-colors mb-8"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Link>
+                <Link 
+                  href="/" 
+                  className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary transition-colors mb-8 group"
+                >
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  Back to Home
+                </Link>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -58,15 +83,26 @@ export default function TestimonialsContentClient({ testimonialsData }: Testimon
                 <span className="text-xs font-bold tracking-wider text-primary uppercase">Client Reviews</span>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-6">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white leading-tight mb-6"
+              >
                 What our clients{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent bg-300% animate-gradient">
                   say about us.
                 </span>
-              </h1>
-              <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+              >
                 Don&apos;t just take our word for it. Here&apos;s what industry leaders say about working with Zelvoxx.
-              </p>
+              </motion.p>
             </motion.div>
           </div>
         </section>

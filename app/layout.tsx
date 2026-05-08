@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     "We architect premium digital growth systems that generate predictable revenue and dominate industries.",
 };
 
-import CustomCursor from "@/src/components/ui/CustomCursor";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -34,7 +33,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-background text-white`}
       >
-        <CustomCursor />
         {children}
         <Analytics />
         <SpeedInsights />
