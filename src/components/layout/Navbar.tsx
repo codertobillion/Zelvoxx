@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 import { CALENDLY_URL } from "@/src/constants/data";
 
 export default function Navbar() {
@@ -17,8 +18,13 @@ export default function Navbar() {
       className="fixed top-0 left-0 w-full z-50 glass border-b-0"
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-        <Link href="/" className="text-2xl md:text-3xl font-heading font-black text-white tracking-widest flex items-center gap-2 relative z-[60]">
-          Zelvoxx<span className="text-primary -ml-2">.</span>
+        <Link href="/" className="relative z-[60] flex items-center gap-1 group">
+          <span className="text-2xl md:text-3xl font-heading font-black tracking-widest bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+            ZELVOX
+          </span>
+          <span className="text-2xl md:text-3xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa]">
+            X
+          </span>
         </Link>
         
         <div className="hidden md:flex items-center gap-10 text-sm font-semibold tracking-wide">
@@ -62,6 +68,15 @@ export default function Navbar() {
             transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
             className="md:hidden fixed inset-0 bg-[#0B0B0B]/95 backdrop-blur-2xl z-50 flex flex-col items-center justify-center gap-10 h-screen w-full border-b border-white/10"
           >
+            <Link href="/" onClick={() => setIsOpen(false)} className="mb-4">
+              <Image 
+                src="/logo.png" 
+                alt="Zelvoxx" 
+                width={180} 
+                height={70} 
+                className="h-16 w-auto object-contain"
+              />
+            </Link>
             <Link href="/portfolio" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Work</Link>
             <Link href="/case-studies" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Case Studies</Link>
             <Link href="/why-Zelvoxx" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Why Zelvoxx</Link>

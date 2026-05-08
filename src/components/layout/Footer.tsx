@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { socialLinks, legalLinks, footerNavLinks, CALENDLY_URL } from "@/src/constants/data";
 
 export default function Footer() {
@@ -8,8 +9,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Brand */}
           <div>
-            <Link href="/" className="text-3xl font-heading font-black text-white tracking-widest flex items-center gap-2 mb-6 inline-block">
-              Zelvoxx<span className="text-primary -ml-2">.</span>
+            <Link href="/" className="mb-6 inline-block">
+              <span className="text-3xl font-heading font-black tracking-widest bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                ZELVOX
+              </span>
+              <span className="text-3xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa]">
+                X
+              </span>
             </Link>
             <p className="text-white/50 font-body max-w-sm leading-relaxed">
               We build premium digital growth systems that generate predictable revenue and dominate industries.
@@ -50,9 +56,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@Zelvoxx.com" className="hover:text-primary transition-colors text-sm">
-                  hello@Zelvoxx.com
-                </a>
+                <Link href="/" className="mb-4 flex flex-col items-center">
+                  <span className="text-4xl font-heading font-black tracking-widest bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                    ZELVOX
+                  </span>
+                  <span className="text-4xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa]">
+                    X
+                  </span>
+                </Link>
               </li>
               <li className="pt-4 flex items-center gap-4">
                 {socialLinks.map((social) => (

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 import { CALENDLY_URL } from "@/src/constants/data";
 
 const logos = ["LUMEN", "PULSE", "HEXABIT", "AVORA", "NEXORA", "VERTEX"];
@@ -140,15 +141,34 @@ export default function Hero({ data, stats }: HeroProps) {
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-between gap-12 mt-10">
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
+          {/* Animated Logo Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8"
           >
-            <span className="text-sm font-bold tracking-widest text-primary uppercase">
-              {data?.title || "Growth Systems Agency"}
-            </span>
+            <div className="relative group cursor-pointer">
+              <motion.div
+                animate={{ 
+                  boxShadow: [
+                    "0 0 20px rgba(123, 97, 255, 0.3)",
+                    "0 0 40px rgba(123, 97, 255, 0.5)",
+                    "0 0 20px rgba(123, 97, 255, 0.3)",
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 rounded-2xl blur-xl"
+              />
+              <div className="relative glass-premium rounded-2xl px-6 py-3 border border-white/10">
+                <span className="text-3xl md:text-4xl font-heading font-black tracking-widest bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                  ZELVOX
+                </span>
+                <span className="text-3xl md:text-4xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#a78bfa]">
+                  X
+                </span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Main heading with subtle glow effect */}
@@ -238,9 +258,24 @@ export default function Hero({ data, stats }: HeroProps) {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.5 }}
-            className="w-full max-w-sm glass-premium rounded-3xl p-8 border border-white/10 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-8 backdrop-blur-xl relative overflow-hidden"
+            className="w-full max-w-sm glass-premium rounded-3xl p-8 border border-white/10 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-6 backdrop-blur-xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none" />
+            
+            {/* Logo in stats card */}
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex justify-center mb-2"
+            >
+              <span className="text-2xl font-heading font-black tracking-widest bg-gradient-to-r from-white/60 via-white/60 to-white/40 bg-clip-text text-transparent">
+                ZELVOX
+              </span>
+              <span className="text-2xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1]/60 via-[#8b5cf6]/60 to-[#a78bfa]/60">
+                X
+              </span>
+            </motion.div>
             {(stats?.length ? stats : defaultStats).map((stat, idx) => (
               <div key={idx}>
                 <div className="relative z-10 flex flex-col gap-2">
