@@ -12,7 +12,7 @@ const getMetrics = (isMobile: boolean) => [
     suffix: "M+",
     prefix: "$",
     icon: <TrendingUp className="w-6 h-6 text-primary" />,
-    delay: isMobile ? 0.05 : 0.1,
+    delay: 0,
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const getMetrics = (isMobile: boolean) => [
     suffix: "+",
     prefix: "",
     icon: <Users className="w-6 h-6 text-accent" />,
-    delay: isMobile ? 0.1 : 0.2,
+    delay: 0,
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const getMetrics = (isMobile: boolean) => [
     suffix: "%",
     prefix: "",
     icon: <Award className="w-6 h-6 text-primary" />,
-    delay: isMobile ? 0.15 : 0.3,
+    delay: 0,
   },
 ];
 
@@ -83,7 +83,7 @@ export default function Metrics() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: isMobile ? 0.4 : 0.6, delay: metric.delay }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
               className="flex flex-col items-center text-center py-8 md:py-0 px-4 group"
             >
               <div className="mb-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 shadow-[0_0_15px_rgba(123,97,255,0)] group-hover:shadow-[0_0_30px_rgba(123,97,255,0.15)]">

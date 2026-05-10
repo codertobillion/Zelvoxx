@@ -54,7 +54,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: isMobile ? 0.4 : 0.6 }}
+            transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
             className="text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
           >
             How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Execute.</span>
@@ -71,7 +71,7 @@ export default function Process() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: isMobile ? 0.4 : 0.5, delay: isMobile ? idx * 0.05 : idx * 0.1 }}
+              transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0 }}
               className="relative z-10 flex flex-col group"
             >
               <div className="mb-6">

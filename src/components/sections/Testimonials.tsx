@@ -67,7 +67,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: isMobile ? 0.4 : 0.6 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
             >
               <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">What Clients Say</span>
             </motion.div>
@@ -76,7 +76,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? 0.05 : 0.1 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
               className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
             >
               Don't just take <br className="hidden lg:block" />
@@ -89,7 +89,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
               className="text-white/60 text-sm sm:text-base leading-relaxed-plus max-w-sm mx-auto lg:mx-0"
             >
               Real operators sharing what changed after the system was live: calmer teams, stronger pipelines, and predictable revenue.
@@ -108,7 +108,7 @@ export default function Testimonials({ data }: { data?: TestimonialType[] }) {
                   initial={{ opacity: 0, x: 60, y: 20 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: isMobile ? 0.5 : 0.7, delay: isMobile ? idx * 0.08 : idx * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+                  transition={{ duration: isMobile ? 0.4 : 0.7, delay: 0, ease: [0.25, 0.4, 0.25, 1] }}
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="w-[78vw] sm:w-[440px] min-h-[320px] sm:min-h-[400px] glass-premium premium-border p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] relative group bg-gradient-to-b from-white/[0.04] to-transparent flex flex-col transition-all duration-500 touch-manipulation"
                   style={{

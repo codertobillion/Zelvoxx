@@ -68,7 +68,7 @@ export default function Services({ data }: { data?: ServiceType[] }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: isMobile ? 0.1 : 0.2, duration: isMobile ? 0.4 : 0.6 }}
+              transition={{ delay: 0, duration: isMobile ? 0.3 : 0.6 }}
             >
               <a href="#contact" className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/10 hover:border-white/30 px-6 py-3 rounded-lg transition-all text-sm font-medium">
                 View All Services <LucideIcons.ArrowRight className="w-4 h-4" />
@@ -88,7 +88,7 @@ export default function Services({ data }: { data?: ServiceType[] }) {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: isMobile ? 0.4 : 0.5, delay: isMobile ? idx * 0.05 : idx * 0.1 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0 }}
                   whileHover={{ y: -5, scale: 1.01 }}
                   className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent h-full touch-manipulation"
                 >

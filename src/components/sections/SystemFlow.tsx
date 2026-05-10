@@ -57,7 +57,7 @@ export default function SystemFlow() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? 0.05 : 0.1 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-[1.05]"
             >
               A proven system that turns brands into <br className="hidden lg:block" />
@@ -72,7 +72,7 @@ export default function SystemFlow() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: isMobile ? 0.5 : 0.8, delay: isMobile ? 0.15 : 0.3 }}
+            transition={{ duration: isMobile ? 0.4 : 0.8, delay: 0 }}
             className="relative w-full overflow-visible"
           >
             {/* Desktop Horizontal Flow */}
@@ -249,7 +249,7 @@ export default function SystemFlow() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05, duration: 0.4 }}
+                    transition={{ delay: 0, duration: 0.3 }}
                     className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10 touch-manipulation"
                   >
                     <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#14141c] to-[#0a0a0f] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-white/10 shrink-0">
@@ -270,7 +270,7 @@ export default function SystemFlow() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: isMobile ? 0.3 : 0.8, duration: isMobile ? 0.4 : 0.6 }}
+              transition={{ delay: 0, duration: isMobile ? 0.3 : 0.6 }}
               className="text-center mt-12 text-sm text-white/50 hidden md:block tracking-wide"
             >
               <span className="inline-flex items-center gap-2">

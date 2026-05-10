@@ -63,8 +63,8 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
               const studySlug = study.slug || study._id;
               const href = studySlug ? `/case-study/${studySlug}` : "#";
 
-              // Faster delays on mobile
-              const delay = isMobile ? idx * 0.05 : idx * 0.1;
+              // No delay on mobile
+              const delay = isMobile ? 0 : idx * 0.1;
 
               return (
                 <Link
@@ -132,7 +132,7 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: isMobile ? 0.15 : 0.3 }}
+                transition={{ duration: 0.5, delay: 0 }}
                 className="flex justify-center pt-4 sm:pt-6"
               >
                 <Link

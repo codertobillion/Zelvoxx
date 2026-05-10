@@ -84,7 +84,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: isMobile ? 0.4 : 0.6 }}
+            transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0 }}
             className="text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
           >
             Choose your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent relative inline-block">
@@ -101,7 +101,7 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: isMobile ? 0.5 : 0.6, delay: isMobile ? idx * 0.05 : idx * 0.1 }}
+              transition={{ duration: isMobile ? 0.4 : 0.6, delay: 0 }}
               className={`p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2.5rem] relative group border flex flex-col h-full transition-all duration-500 hover:lg:-translate-y-4 ${
                 tier.highlighted
                 ? "bg-gradient-to-b from-[#1a1a24] to-[#0B0B0B] border-primary/50 shadow-[0_10px_40px_rgba(123,97,255,0.2)] lg:-mt-8 lg:-mb-8 z-10"

@@ -10,8 +10,8 @@ const getContainerVariants = (isMobile: boolean): Variants => ({
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: isMobile ? 0.05 : 0.1,
-      delayChildren: isMobile ? 0.1 : 0.2,
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 });

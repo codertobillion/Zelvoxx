@@ -60,8 +60,8 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
               const projectSlug = project.slug || project._id;
               const href = projectSlug ? `/case-study/${projectSlug}` : "#";
 
-              // Faster delays on mobile
-              const delay = isMobile ? idx * 0.05 : idx * 0.1;
+              // No delay on mobile
+              const delay = isMobile ? 0 : idx * 0.1;
 
               return (
                 <Link
@@ -142,7 +142,7 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: isMobile ? 0.15 : 0.3 }}
+                transition={{ duration: 0.5, delay: 0 }}
                 className="col-span-1 sm:col-span-2 flex justify-center mt-4 sm:mt-6"
               >
                 <Link

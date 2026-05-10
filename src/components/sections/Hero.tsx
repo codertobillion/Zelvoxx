@@ -55,9 +55,9 @@ export default function Hero({ data, stats }: HeroProps) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Animation config based on device
-  const baseDelay = isMobile ? 0.1 : 0.2;
-  const animDuration = isMobile ? 0.5 : 0.7;
+  // Animation config based on device - no delay on mobile
+  const baseDelay = isMobile ? 0 : 0.2;
+  const animDuration = isMobile ? 0.4 : 0.7;
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-10">
