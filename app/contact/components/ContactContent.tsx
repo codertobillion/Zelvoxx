@@ -290,7 +290,7 @@ export default function ContactContent() {
                     </div>
                     <div>
                       <p className="text-sm text-white/40 mb-1">Call Us</p>
-                      <p className="text-white font-medium">+1 (555) 123-4567</p>
+                      <p className="text-white font-medium">+91 9810 601 084</p>
                     </div>
                   </motion.div>
 
