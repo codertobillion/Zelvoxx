@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, TrendingUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { urlForImage } from "@/sanity/lib/image";
 
 interface PortfolioContentProps {
@@ -11,6 +12,19 @@ interface PortfolioContentProps {
 }
 
 export default function PortfolioContent({ data }: PortfolioContentProps) {
+  // Limit to first 3 items
+  const displayData = data?.slice(0, 3) || [];
+  const hasMore = data?.length > 3;
+
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="py-20 sm:py-32 md:py-44 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -38,13 +52,16 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
           {/* GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
 
-            {data?.map((project, idx) => {
+            {displayData.map((project, idx) => {
               const imageUrl = urlForImage(project.thumbnail || project.image);
               const displayName = project.clientName || project.title || "Project";
               const hasContent = project.niche || project.result || project.excerpt;
               // Use slug if available, otherwise fallback to _id for testing
               const projectSlug = project.slug || project._id;
               const href = projectSlug ? `/case-study/${projectSlug}` : "#";
+
+              // Faster delays on mobile
+              const delay = isMobile ? idx * 0.05 : idx * 0.1;
 
               return (
                 <Link
@@ -55,7 +72,7 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    transition={{ duration: 0.5, delay }}
                     whileHover={{ y: -5, scale: 1.01 }}
                     className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0f0f14] border border-white/10 hover:border-primary/40 transition-all duration-300 h-full touch-manipulation"
                   >
@@ -118,6 +135,25 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                 </Link>
               );
             })}
+
+            {/* View All Button */}
+            {hasMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: isMobile ? 0.15 : 0.3 }}
+                className="col-span-1 sm:col-span-2 flex justify-center mt-4 sm:mt-6"
+              >
+                <Link
+                  href="/portfolio"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <span className="text-white font-semibold text-sm sm:text-base">View All Projects</span>
+                  <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            )}
 
           </div>
 

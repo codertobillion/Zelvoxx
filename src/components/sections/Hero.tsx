@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { CALENDLY_URL } from "@/src/constants/data";
 
@@ -45,6 +46,19 @@ const defaultStats = [
 ];
 
 export default function Hero({ data, stats }: HeroProps) {
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Animation config based on device
+  const baseDelay = isMobile ? 0.1 : 0.2;
+  const animDuration = isMobile ? 0.5 : 0.7;
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-10">
       <div className="absolute inset-0 z-0">
@@ -185,7 +199,7 @@ export default function Hero({ data, stats }: HeroProps) {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: animDuration, delay: baseDelay }}
               className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-heading font-black mb-6 text-white leading-[1.05] tracking-tighter"
             >
               Build. Scale. <br className="hidden sm:block" />
@@ -198,7 +212,7 @@ export default function Hero({ data, stats }: HeroProps) {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: animDuration, delay: baseDelay + (isMobile ? 0.1 : 0.1) }}
             className="text-base sm:text-lg md:text-xl text-white/70 mb-8 lg:mb-10 max-w-lg font-body font-light leading-relaxed px-4 sm:px-0"
           >
             {data?.subtitle || "We build complete digital ecosystems that generate leads, increase sales, and scale your brand."}
@@ -207,7 +221,7 @@ export default function Hero({ data, stats }: HeroProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: animDuration, delay: baseDelay + (isMobile ? 0.15 : 0.2) }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
           >
             <motion.a
@@ -257,7 +271,7 @@ export default function Hero({ data, stats }: HeroProps) {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.5 }}
+            transition={{ duration: isMobile ? 0.6 : 0.9, delay: baseDelay + (isMobile ? 0.2 : 0.3) }}
             className="w-full max-w-[320px] sm:max-w-sm glass-premium rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 bg-gradient-to-b from-[#1A1A24]/80 to-[#0B0B10]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-4 sm:gap-6 backdrop-blur-xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none" />
@@ -266,7 +280,7 @@ export default function Hero({ data, stats }: HeroProps) {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: isMobile ? 0.6 : 1, delay: isMobile ? 0.4 : 0.8 }}
               className="flex justify-center mb-1 sm:mb-2"
             >
               <span className="text-xl sm:text-2xl font-heading font-black tracking-widest bg-gradient-to-r from-white/60 via-white/60 to-white/40 bg-clip-text text-transparent">
@@ -296,7 +310,7 @@ export default function Hero({ data, stats }: HeroProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
+        transition={{ duration: isMobile ? 0.6 : 1, delay: isMobile ? 0.4 : 0.8 }}
         className="w-full mt-16 sm:mt-24 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pb-8 lg:pb-0"
       >
         <p className="text-xs font-bold tracking-[0.2em] text-white/30 uppercase mb-6 sm:mb-8 lg:mb-12 text-center lg:text-left">

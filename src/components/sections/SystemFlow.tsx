@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Sparkles, Layout, Filter, Target, DollarSign } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const steps = [
   { icon: Sparkles, title: "Brand", desc: "Identity & Positioning" },
@@ -14,6 +14,15 @@ const steps = [
 
 export default function SystemFlow() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
+
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section id="system" className="py-32 md:py-44 relative overflow-hidden border-y border-white/5">
@@ -44,11 +53,11 @@ export default function SystemFlow() {
               </span>
             </motion.div>
 
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }} 
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? 0.05 : 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-[1.05]"
             >
               A proven system that turns brands into <br className="hidden lg:block" />
@@ -63,7 +72,7 @@ export default function SystemFlow() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: isMobile ? 0.5 : 0.8, delay: isMobile ? 0.15 : 0.3 }}
             className="relative w-full overflow-visible"
           >
             {/* Desktop Horizontal Flow */}
@@ -240,8 +249,8 @@ export default function SystemFlow() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.15, duration: 0.5 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10"
+                    transition={{ delay: idx * 0.05, duration: 0.4 }}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10 touch-manipulation"
                   >
                     <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#14141c] to-[#0a0a0f] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-white/10 shrink-0">
                       <Icon className="w-5 h-5 text-primary" />
@@ -261,7 +270,7 @@ export default function SystemFlow() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 0.6 }}
+              transition={{ delay: isMobile ? 0.3 : 0.8, duration: isMobile ? 0.4 : 0.6 }}
               className="text-center mt-12 text-sm text-white/50 hidden md:block tracking-wide"
             >
               <span className="inline-flex items-center gap-2">

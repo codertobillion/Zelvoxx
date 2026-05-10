@@ -3,36 +3,37 @@
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Zap, Target, ShieldCheck, Trophy, Rocket, BarChart3, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const containerVariants: Variants = {
+const getContainerVariants = (isMobile: boolean): Variants => ({
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: isMobile ? 0.05 : 0.1,
+      delayChildren: isMobile ? 0.1 : 0.2,
     },
   },
-};
+});
 
-const fadeInUp: Variants = {
+const getFadeInUp = (isMobile: boolean): Variants => ({
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: isMobile ? 0.4 : 0.6, ease: [0.22, 1, 0.36, 1] },
   },
-};
+});
 
-const cardVariants: Variants = {
+const getCardVariants = (isMobile: boolean): Variants => ({
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: isMobile ? 0.4 : 0.5, ease: [0.22, 1, 0.36, 1] },
   },
-};
+});
 
 const reasons = [
   {
@@ -76,6 +77,19 @@ const additionalFeatures = [
 ];
 
 export default function HomeWhyZelvoxx() {
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const containerVariants = getContainerVariants(isMobile);
+  const fadeInUp = getFadeInUp(isMobile);
+  const cardVariants = getCardVariants(isMobile);
+
   return (
     <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Effects */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const processes = [
   {
@@ -26,6 +27,15 @@ const processes = [
 ];
 
 export default function Process() {
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="process" className="bg-[#0c0d14] relative overflow-hidden border-t border-white/5">
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(123,97,255,0.04),transparent_30%,transparent_70%,rgba(45,156,219,0.04))]" />
@@ -40,11 +50,11 @@ export default function Process() {
             <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">The Process</span>
           </motion.div>
           
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: isMobile ? 0.4 : 0.6 }}
             className="text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
           >
             How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Execute.</span>
@@ -56,12 +66,12 @@ export default function Process() {
           <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-white/5 z-0" />
           
           {processes.map((step, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: isMobile ? 0.4 : 0.5, delay: isMobile ? idx * 0.05 : idx * 0.1 }}
               className="relative z-10 flex flex-col group"
             >
               <div className="mb-6">

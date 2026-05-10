@@ -2,13 +2,26 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, AlertCircle, Lightbulb, TrendingUp } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import { caseStudies } from "@/src/constants/data";
 import { CaseStudyType } from "@/src/types";
 
 export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
-  const displayData = data?.length ? data : caseStudies;
+  const allData = data?.length ? data : caseStudies;
+  // Limit to first 3 items
+  const displayData = allData.slice(0, 3);
+  const hasMore = allData.length > 3;
+
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section id="case-studies" className="py-20 sm:py-32 bg-[#101018] relative border-t border-white/5">
@@ -50,6 +63,9 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
               const studySlug = study.slug || study._id;
               const href = studySlug ? `/case-study/${studySlug}` : "#";
 
+              // Faster delays on mobile
+              const delay = isMobile ? idx * 0.05 : idx * 0.1;
+
               return (
                 <Link
                   key={idx}
@@ -60,7 +76,7 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.7, delay: idx * 0.1 }}
+                  transition={{ duration: 0.5, delay }}
                   whileHover={{ y: -5, scale: 1.01 }}
                   className="glass-premium premium-border soft-glow rounded-xl sm:rounded-2xl p-5 sm:p-8 relative overflow-hidden group hover:border-primary/30 transition-all duration-500 bg-gradient-to-b from-white/[0.04] to-transparent touch-manipulation"
                 >
@@ -109,6 +125,25 @@ export default function CaseStudies({ data }: { data?: CaseStudyType[] }) {
               </Link>
               );
             })}
+
+            {/* View All Button */}
+            {hasMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: isMobile ? 0.15 : 0.3 }}
+                className="flex justify-center pt-4 sm:pt-6"
+              >
+                <Link
+                  href="/case-studies"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <span className="text-white font-semibold text-sm sm:text-base">View All Case Studies</span>
+                  <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Link>
+              </motion.div>
+            )}
           </div>
 
         </div>

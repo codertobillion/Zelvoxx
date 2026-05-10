@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
+import { useState, useEffect } from "react";
 import { services } from "@/src/constants/data";
 import { ServiceType } from "@/src/types";
 
@@ -17,6 +18,15 @@ export default function Services({ data }: { data?: ServiceType[] }) {
       icon: <IconComponent className="w-6 h-6 relative z-10" />
     }
   }) : services;
+
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section id="services" className="relative bg-background overflow-hidden border-t border-white/5 py-20 scroll-mt-24">
@@ -58,7 +68,7 @@ export default function Services({ data }: { data?: ServiceType[] }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: isMobile ? 0.1 : 0.2, duration: isMobile ? 0.4 : 0.6 }}
             >
               <a href="#contact" className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/10 hover:border-white/30 px-6 py-3 rounded-lg transition-all text-sm font-medium">
                 View All Services <LucideIcons.ArrowRight className="w-4 h-4" />
@@ -78,9 +88,9 @@ export default function Services({ data }: { data?: ServiceType[] }) {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  transition={{ duration: isMobile ? 0.4 : 0.5, delay: isMobile ? idx * 0.05 : idx * 0.1 }}
                   whileHover={{ y: -5, scale: 1.01 }}
-                  className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent h-full"
+                  className="glass-premium premium-border soft-glow p-8 rounded-2xl relative group overflow-hidden bg-gradient-to-b from-white/[0.03] to-transparent h-full touch-manipulation"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                   

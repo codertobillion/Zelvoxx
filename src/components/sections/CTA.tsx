@@ -4,8 +4,18 @@ import { motion } from "framer-motion";
 import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
 import { CALENDLY_URL } from "@/src/constants/data";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function CTA() {
+  // Mobile detection for faster animations
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="bg-background relative overflow-hidden" id="cta">
       {/* Space Background */}
@@ -22,11 +32,11 @@ export default function CTA() {
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: isMobile ? 0.5 : 0.8, ease: "easeOut" }}
           className="p-12 md:p-24 rounded-[3rem] relative overflow-hidden shadow-2xl group border border-white/10 glass-premium"
         >
           <div className="absolute inset-0 bg-[#0B0B0B]/60 backdrop-blur-md z-0" />
