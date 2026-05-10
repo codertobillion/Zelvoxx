@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { XCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const painPoints = [
   "Websites that look good but don't convert.",
@@ -11,6 +12,15 @@ const painPoints = [
 ];
 
 export default function Problem() {
+  // Mobile detection for faster animations (instant on mobile)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="problem" className="relative overflow-hidden border-t border-white/5 bg-[#0d0d12]">
       <div className="absolute inset-0 pointer-events-none"><div className="absolute -top-24 left-0 w-[45vw] h-[45vw] bg-primary/10 blur-[140px]" /><div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-accent/10 blur-[140px]" /></div>
@@ -28,11 +38,11 @@ export default function Problem() {
               <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">The Problem</span>
             </motion.div>
             
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6 }}
               className="text-4xl md:text-5xl font-heading font-black text-white leading-[1.1] tracking-tight"
             >
               Most businesses don't have a growth problem. <br className="hidden lg:block" />
@@ -45,13 +55,13 @@ export default function Problem() {
           {/* Right Column: Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {painPoints.map((point, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-premium premium-border soft-glow p-8 rounded-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] group bg-gradient-to-b from-white/[0.04] to-transparent"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0 : idx * 0.1 }}
+                className="glass-premium premium-border soft-glow p-8 rounded-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] group bg-gradient-to-b from-white/[0.04] to-transparent touch-manipulation"
               >
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                   <XCircle className="w-6 h-6 text-white/50 group-hover:text-primary transition-colors" />
