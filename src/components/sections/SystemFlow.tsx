@@ -59,14 +59,15 @@ export default function SystemFlow() {
           </div>
 
           {/* RIGHT FLOW */}
-          <motion.div 
-            initial={{ opacity: 0 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative w-full overflow-visible"
           >
-            <div className="min-w-[600px] flex justify-between items-center relative">
+            {/* Desktop Horizontal Flow */}
+            <div className="hidden md:flex min-w-[600px] justify-between items-center relative">
 
               {/* Connecting Line Container */}
               <div className="absolute top-1/2 left-[12%] right-[12%] h-10 -translate-y-1/2 z-0">
@@ -229,8 +230,34 @@ export default function SystemFlow() {
 
             </div>
 
+            {/* Mobile Vertical Flow */}
+            <div className="flex md:hidden flex-col gap-6 relative">
+              {steps.map((step, idx) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.15, duration: 0.5 }}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#14141c] to-[#0a0a0f] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-white/10 shrink-0">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white font-bold text-sm">{step.title}</p>
+                      <p className="text-white/50 text-xs">{step.desc}</p>
+                    </div>
+                    <div className="text-lg font-black text-white/10">{String(idx + 1).padStart(2, '0')}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
             {/* Bottom tagline with enhanced styling */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

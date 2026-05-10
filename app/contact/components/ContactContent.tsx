@@ -227,7 +227,7 @@ export default function ContactContent() {
   }
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Dynamic Background */}
       <DynamicBackground variant="mixed" intensity="high" />
 
@@ -239,30 +239,30 @@ export default function ContactContent() {
           variants={staggerContainer}
         >
           {/* Header */}
-          <motion.div variants={fadeInUp} className="text-center mb-16">
+          <motion.div variants={fadeInUp} className="text-center mb-12 sm:mb-16">
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(123, 97, 255, 0.15)" }}
             >
               <MessageCircle className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-semibold">Get in Touch</span>
             </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Let's Build{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient">
-                Something Great
+                Together
               </span>
             </h1>
-            <p className="text-xl text-white/50 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto px-4 sm:px-0">
               Tell us about your project. We'll respond within 24 hours with a tailored strategy.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info Sidebar */}
-            <motion.div variants={fadeInUp} className="lg:col-span-2 space-y-8">
-              <div className="p-8 bg-white/[0.03] backdrop-blur-sm rounded-3xl border border-white/10">
+            <motion.div variants={fadeInUp} className="lg:col-span-2 space-y-6 sm:space-y-8">
+              <div className="p-6 sm:p-8 bg-white/[0.03] backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/10">
                 <h3 className="text-2xl font-bold text-white mb-6">Contact Info</h3>
                 
                 <div className="space-y-6">
@@ -332,8 +332,8 @@ export default function ContactContent() {
 
             {/* Form */}
             <motion.div variants={scaleIn} className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="p-8 lg:p-10 bg-white/[0.03] backdrop-blur-sm rounded-3xl border border-white/10">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="p-5 sm:p-8 lg:p-10 bg-white/[0.03] backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/10">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Name */}
                   <div className="sm:col-span-2">
                     <label className="block text-sm font-medium text-white/70 mb-2">

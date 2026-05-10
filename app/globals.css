@@ -12,16 +12,16 @@
   .glass {
     @apply bg-white/[0.02] backdrop-blur-md border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.1)];
   }
-  
+
   .glass-premium {
     @apply bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative overflow-hidden;
   }
-  
+
   .glass-premium::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-50 pointer-events-none;
   }
-  
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -41,6 +41,51 @@
   a:hover, button:hover {
     @apply brightness-110;
   }
+
+  /* Mobile touch optimization */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent text selection on interactive elements */
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Responsive section padding */
+  .section-padding {
+    @apply py-16 sm:py-20 md:py-24 lg:py-32;
+  }
+
+  /* Container padding for mobile */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Mobile-optimized text sizes */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  /* Safe area insets for notched devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-x {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
 @layer base {
@@ -58,11 +103,30 @@
   }
 
   section {
-    @apply py-24 md:py-36;
+    @apply py-16 sm:py-20 md:py-28 lg:py-36;
   }
 
   h1, h2, h3, h4 {
     @apply font-heading tracking-tight;
+  }
+
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Mobile viewport height fix */
+  @supports (height: 100dvh) {
+    .min-h-screen {
+      min-height: 100dvh;
+    }
   }
 }
 

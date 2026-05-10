@@ -28,10 +28,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="dark scroll-smooth overflow-x-hidden text-[14px] md:text-[16px]"
+      className="dark scroll-smooth overflow-x-hidden text-[15px] sm:text-[16px]"
     >
       <body
-        className={`${inter.variable} ${poppins.variable} antialiased bg-background text-white`}
+        className={`${inter.variable} ${poppins.variable} antialiased bg-background text-white overflow-x-hidden min-h-screen`}
       >
         {children}
         <Analytics />

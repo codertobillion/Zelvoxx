@@ -84,17 +84,17 @@ export default function Pricing() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch lg:items-center max-w-6xl mx-auto">
           {tiers.map((tier, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`p-10 rounded-[2.5rem] relative group border flex flex-col h-full transition-all duration-500 hover:-translate-y-4 ${
-                tier.highlighted 
-                ? "bg-gradient-to-b from-[#1a1a24] to-[#0B0B0B] border-primary/50 shadow-[0_10px_40px_rgba(123,97,255,0.2)] lg:-mt-8 lg:-mb-8 z-10" 
+              className={`p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2.5rem] relative group border flex flex-col h-full transition-all duration-500 hover:lg:-translate-y-4 ${
+                tier.highlighted
+                ? "bg-gradient-to-b from-[#1a1a24] to-[#0B0B0B] border-primary/50 shadow-[0_10px_40px_rgba(123,97,255,0.2)] lg:-mt-8 lg:-mb-8 z-10"
                 : "glass border-white/10 bg-[#16161c] hover:border-white/30 hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
               }`}
             >
@@ -104,34 +104,34 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="mb-8">
-                <h3 className="text-2xl font-heading font-bold text-white mb-4 tracking-wide group-hover:text-primary transition-colors">{tier.name}</h3>
-                <p className="text-white/50 font-body min-h-[48px] leading-relaxed">{tier.description}</p>
+              <div className="mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-3 sm:mb-4 tracking-wide group-hover:text-primary transition-colors">{tier.name}</h3>
+                <p className="text-white/50 font-body min-h-[40px] sm:min-h-[48px] leading-relaxed text-sm sm:text-base">{tier.description}</p>
               </div>
 
-              <div className="mb-8 pb-8 border-b border-white/10">
+              <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-white/10">
                 <div className="flex items-end gap-2">
-                  <span className="text-5xl font-black font-heading text-white tracking-tight drop-shadow-md">{tier.price}</span>
-                  {tier.price !== "Custom" && <span className="text-white/40 font-body mb-2 font-medium tracking-wide">/project</span>}
+                  <span className="text-4xl sm:text-5xl font-black font-heading text-white tracking-tight drop-shadow-md">{tier.price}</span>
+                  {tier.price !== "Custom" && <span className="text-white/40 font-body mb-1 sm:mb-2 font-medium tracking-wide text-sm sm:text-base">/project</span>}
                 </div>
               </div>
 
               <div className="flex-1">
-                <ul className="space-y-5 mb-10">
+                <ul className="space-y-3 sm:space-y-5 mb-8 sm:mb-10">
                   {tier.features.map((feat, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <div className="mt-0.5 shrink-0 bg-primary/20 p-1.5 rounded-full group-hover:bg-primary/30 transition-colors">
-                        <Check className="w-3.5 h-3.5 text-primary" />
+                    <li key={i} className="flex items-start gap-3 sm:gap-4">
+                      <div className="mt-0.5 shrink-0 bg-primary/20 p-1 rounded-full sm:p-1.5 group-hover:bg-primary/30 transition-colors">
+                        <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
                       </div>
-                      <span className="text-white/80 font-body leading-relaxed">{feat}</span>
+                      <span className="text-white/80 font-body leading-relaxed text-sm sm:text-base">{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <button className={`w-full py-4 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-3 group/btn uppercase tracking-wider text-sm overflow-hidden relative ${
-                tier.highlighted 
-                ? "bg-gradient-to-r from-primary to-accent text-white hover:shadow-[0_0_30px_rgba(123,97,255,0.6)] hover:scale-105" 
+              <button className={`w-full py-4 sm:py-5 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3 group/btn uppercase tracking-wider text-sm overflow-hidden relative min-h-[56px] touch-manipulation active:scale-95 ${
+                tier.highlighted
+                ? "bg-gradient-to-r from-primary to-accent text-white hover:shadow-[0_0_30px_rgba(123,97,255,0.6)] lg:hover:scale-105"
                 : "bg-white/5 text-white border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]"
               }`}>
                 <span className="relative z-10 flex items-center gap-2">

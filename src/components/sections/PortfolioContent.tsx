@@ -12,31 +12,31 @@ interface PortfolioContentProps {
 
 export default function PortfolioContent({ data }: PortfolioContentProps) {
   return (
-    <section className="py-32 md:py-44 bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 sm:py-32 md:py-44 bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
 
           {/* LEFT */}
-          <div className="sticky top-32 space-y-6">
+          <div className="lg:sticky lg:top-32 space-y-6 text-center lg:text-left">
             <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">
               Our Work
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              Results that <br />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
+              Results that <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 speak for themselves.
               </span>
             </h2>
 
-            <p className="text-white/60 max-w-sm">
+            <p className="text-white/60 max-w-sm mx-auto lg:mx-0">
               Conversion-focused systems, measured by revenue and growth.
             </p>
           </div>
 
           {/* GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
 
             {data?.map((project, idx) => {
               const imageUrl = urlForImage(project.thumbnail || project.image);
@@ -57,12 +57,12 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                     whileHover={{ y: -5, scale: 1.01 }}
-                    className="relative rounded-2xl overflow-hidden bg-[#0f0f14] border border-white/10 hover:border-primary/40 transition-all duration-300 h-full"
+                    className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-[#0f0f14] border border-white/10 hover:border-primary/40 transition-all duration-300 h-full touch-manipulation"
                   >
 
                     {/* IMAGE */}
                     {imageUrl ? (
-                      <div className="relative h-[240px]">
+                      <div className="relative h-[200px] sm:h-[240px]">
                         <Image
                           src={imageUrl.url()}
                           alt={displayName}
@@ -73,7 +73,7 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f14] via-transparent to-transparent" />
                       </div>
                     ) : (
-                      <div className="h-[240px] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                      <div className="h-[200px] sm:h-[240px] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                         <span className="text-4xl font-black text-white/20">{displayName.charAt(0)}</span>
                       </div>
                     )}
