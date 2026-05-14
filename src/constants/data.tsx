@@ -117,9 +117,23 @@ export const socialLinks = [
   { platform: "LinkedIn", url: "https://linkedin.com/company/Zelvoxx" },
 ];
 
+export const legalSiteInfo = {
+  effectiveDate: "May 14, 2026",
+  email: "hello.Zelvoxx@gmail.com",
+  website: "https://www.zelvoxx.com",
+  linkedIn: "https://www.linkedin.com/company/Zelvoxx",
+} as const;
+
 export const legalLinks = [
   { label: "Privacy Policy", url: "/privacy" },
-  { label: "Terms of Service", url: "/terms" },
+  { label: "Terms & Conditions", url: "/terms" },
+  { label: "Cookie Policy", url: "/cookie-policy" },
+  { label: "Refund Policy", url: "/refund-policy" },
+  { label: "Cancellation Policy", url: "/cancellation-policy" },
+  { label: "Service Agreement", url: "/service-agreement" },
+  { label: "Disclaimer", url: "/disclaimer" },
+  { label: "Copyright", url: "/copyright" },
+  { label: "DMCA", url: "/dmca" },
 ];
 
 export const footerNavLinks = [

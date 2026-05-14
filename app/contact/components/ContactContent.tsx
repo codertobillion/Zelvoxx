@@ -21,7 +21,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { CALENDLY_URL } from "@/src/constants/data";
+import { CALENDLY_URL, legalSiteInfo } from "@/src/constants/data";
 import DynamicBackground from "@/src/components/ui/DynamicBackground";
 
 const fadeInUp: Variants = {
@@ -276,7 +276,12 @@ export default function ContactContent() {
                     </div>
                     <div>
                       <p className="text-sm text-white/40 mb-1">Email Us</p>
-                      <p className="text-white font-medium">hello@zelvoxx.com</p>
+                      <a
+                        href={`mailto:${legalSiteInfo.email}`}
+                        className="text-white font-medium hover:text-primary transition-colors"
+                      >
+                        {legalSiteInfo.email}
+                      </a>
                     </div>
                   </motion.div>
 
