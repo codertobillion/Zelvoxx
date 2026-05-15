@@ -142,6 +142,7 @@ export const footerNavLinks = [
   { label: "Case Studies", url: "/case-studies" },
   { label: "Why Zelvoxx", url: "/why-Zelvoxx" },
   { label: "Our Team", url: "/team" },
+  { label: "Careers", url: "/work-with-us" },
   { label: "Pricing", url: "/pricing" },
   { label: "Reviews", url: "/testimonials" },
   { label: "Contact", url: "/contact" },

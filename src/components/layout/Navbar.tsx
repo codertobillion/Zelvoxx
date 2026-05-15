@@ -32,6 +32,7 @@ export default function Navbar() {
           <Link href="/case-studies" className="hover:text-primary transition-colors">CASE STUDIES</Link>
           <Link href="/why-Zelvoxx" className="hover:text-primary transition-colors">WHY Zelvoxx</Link>
           <Link href="/team" className="hover:text-primary transition-colors">OUR TEAM</Link>
+          <Link href="/work-with-us" className="hover:text-primary transition-colors">CAREERS</Link>
           <Link href="/pricing" className="hover:text-primary transition-colors">PRICING</Link>
           <Link href="/testimonials" className="hover:text-primary transition-colors">REVIEWS</Link>
           <Link href="/contact" className="px-4 py-2 bg-primary/20 border border-primary/40 rounded-full text-primary hover:bg-primary hover:text-white transition-all">CONTACT</Link>
@@ -81,6 +82,7 @@ export default function Navbar() {
             <Link href="/case-studies" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Case Studies</Link>
             <Link href="/why-Zelvoxx" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Why Zelvoxx</Link>
             <Link href="/team" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Our Team</Link>
+            <Link href="/work-with-us" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Careers</Link>
             <Link href="/pricing" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Pricing</Link>
             <Link href="/testimonials" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-white hover:text-primary transition-colors uppercase tracking-widest">Reviews</Link>
             <Link href="/contact" onClick={() => setIsOpen(false)} className="text-4xl font-heading font-black text-primary hover:text-white transition-colors uppercase tracking-widest">Contact</Link>
